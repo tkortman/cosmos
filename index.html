@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cosmos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Brand Intro Animation Overlay -->
+    <div class="brand-intro-overlay" id="brandIntroOverlay">
+        <div class="brand-canvas">
+            <div class="brand-text-container" id="brandTextContainer"></div>
+        </div>
+    </div>
+
+    <div class="app">
+        <!-- Brain Visualization -->
+        <div class="brain-container" id="brainContainer">
+            <!-- Nodes will be injected by JS -->
+            <svg class="connections-svg" id="connectionsSvg"></svg>
+        </div>
+
+        <!-- Floating Prompt Bar -->
+        <div class="floating-prompt">
+            <div class="floating-prompt-inner">
+                <div class="prompt-input-wrap">
+                    <textarea id="promptInput" rows="1"></textarea>
+                    <span class="custom-placeholder" id="customPlaceholder">Ask <em>cosmos</em> anything...</span>
+                </div>
+                <button id="submitPrompt" class="prompt-send-btn" aria-label="Send">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Checkout Wireframe Flows -->
+        <div class="wireframe-flows hidden" id="wireframeFlows">
+            <!-- Flow 1: Cart -->
+            <div class="wireframe-screen">
+                <div class="wireframe-header">
+                    <div class="wf-bar wf-logo"></div>
+                    <div class="wf-bar wf-icon-btn"></div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="wf-bar wf-heading"></div>
+                    <div class="wf-bar wf-subtext"></div>
+                    <div class="wf-spacer"></div>
+                    <!-- Line items -->
+                    <div class="wf-line-item">
+                        <div class="wf-product-img"></div>
+                        <div class="wf-line-item-info">
+                            <div class="wf-bar wf-text-md"></div>
+                            <div class="wf-bar wf-text-sm"></div>
+                            <div class="wf-line-item-bottom">
+                                <div class="wf-qty-control">
+                                    <div class="wf-qty-btn"></div>
+                                    <div class="wf-bar wf-qty-num"></div>
+                                    <div class="wf-qty-btn"></div>
+                                </div>
+                                <div class="wf-bar wf-text-price"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wf-divider"></div>
+                    <div class="wf-line-item">
+                        <div class="wf-product-img"></div>
+                        <div class="wf-line-item-info">
+                            <div class="wf-bar wf-text-md"></div>
+                            <div class="wf-bar wf-text-sm"></div>
+                            <div class="wf-line-item-bottom">
+                                <div class="wf-qty-control">
+                                    <div class="wf-qty-btn"></div>
+                                    <div class="wf-bar wf-qty-num"></div>
+                                    <div class="wf-qty-btn"></div>
+                                </div>
+                                <div class="wf-bar wf-text-price"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wf-divider"></div>
+                    <!-- Order summary -->
+                    <div class="wf-spacer"></div>
+                    <div class="wf-summary-row">
+                        <div class="wf-bar wf-text-sm"></div>
+                        <div class="wf-bar wf-text-price"></div>
+                    </div>
+                    <div class="wf-summary-row">
+                        <div class="wf-bar wf-text-sm"></div>
+                        <div class="wf-bar wf-text-price"></div>
+                    </div>
+                    <div class="wf-divider"></div>
+                    <div class="wf-summary-row">
+                        <div class="wf-bar wf-text-md"></div>
+                        <div class="wf-bar wf-text-price-lg"></div>
+                    </div>
+                    <div class="wf-spacer"></div>
+                    <div class="wf-btn-primary"></div>
+                </div>
+                <div class="wireframe-label">Cart</div>
+            </div>
+
+            <!-- Flow 2: Checkout -->
+            <div class="wireframe-screen">
+                <div class="wireframe-header">
+                    <div class="wf-bar wf-logo"></div>
+                    <div class="wf-steps">
+                        <div class="wf-step filled"></div>
+                        <div class="wf-step-line filled"></div>
+                        <div class="wf-step filled"></div>
+                        <div class="wf-step-line"></div>
+                        <div class="wf-step"></div>
+                    </div>
+                </div>
+                <div class="wireframe-body">
+                    <div class="wf-bar wf-heading"></div>
+                    <div class="wf-spacer-sm"></div>
+                    <!-- Shipping address -->
+                    <div class="wf-bar wf-section-title"></div>
+                    <div class="wf-form-row">
+                        <div class="wf-form-group half">
+                            <div class="wf-bar wf-label"></div>
+                            <div class="wf-input"></div>
+                        </div>
+                        <div class="wf-form-group half">
+                            <div class="wf-bar wf-label"></div>
+                            <div class="wf-input"></div>
+                        </div>
+                    </div>
+                    <div class="wf-form-group">
+                        <div class="wf-bar wf-label"></div>
+                        <div class="wf-input"></div>
+                    </div>
+                    <div class="wf-form-row">
+                        <div class="wf-form-group half">
+                            <div class="wf-bar wf-label"></div>
+                            <div class="wf-input"></div>
+                        </div>
+                        <div class="wf-form-group third">
+                            <div class="wf-bar wf-label"></div>
+                            <div class="wf-input"></div>
+                        </div>
+                        <div class="wf-form-group third">
+                            <div class="wf-bar wf-label"></div>
+                            <div class="wf-input"></div>
+                        </div>
+                    </div>
+                    <div class="wf-spacer"></div>
+                    <!-- Payment -->
+                    <div class="wf-bar wf-section-title"></div>
+                    <div class="wf-form-group">
+                        <div class="wf-bar wf-label"></div>
+                        <div class="wf-input"></div>
+                    </div>
+                    <div class="wf-form-row">
+                        <div class="wf-form-group half">
+                            <div class="wf-bar wf-label"></div>
+                            <div class="wf-input"></div>
+                        </div>
+                        <div class="wf-form-group half">
+                            <div class="wf-bar wf-label"></div>
+                            <div class="wf-input"></div>
+                        </div>
+                    </div>
+                    <div class="wf-spacer"></div>
+                    <div class="wf-btn-primary"></div>
+                </div>
+                <div class="wireframe-label">Checkout</div>
+            </div>
+
+            <!-- Flow 3: Order Confirmation -->
+            <div class="wireframe-screen">
+                <div class="wireframe-header">
+                    <div class="wf-bar wf-logo"></div>
+                    <div class="wf-steps">
+                        <div class="wf-step filled"></div>
+                        <div class="wf-step-line filled"></div>
+                        <div class="wf-step filled"></div>
+                        <div class="wf-step-line filled"></div>
+                        <div class="wf-step filled"></div>
+                    </div>
+                </div>
+                <div class="wireframe-body wf-confirmation">
+                    <div class="wf-check-circle"></div>
+                    <div class="wf-bar wf-heading wf-centered"></div>
+                    <div class="wf-bar wf-subtext wf-centered"></div>
+                    <div class="wf-spacer"></div>
+                    <!-- Order details card -->
+                    <div class="wf-card">
+                        <div class="wf-bar wf-section-title"></div>
+                        <div class="wf-spacer-sm"></div>
+                        <div class="wf-summary-row">
+                            <div class="wf-bar wf-text-sm"></div>
+                            <div class="wf-bar wf-text-sm"></div>
+                        </div>
+                        <div class="wf-summary-row">
+                            <div class="wf-bar wf-text-sm"></div>
+                            <div class="wf-bar wf-text-sm"></div>
+                        </div>
+                        <div class="wf-summary-row">
+                            <div class="wf-bar wf-text-sm"></div>
+                            <div class="wf-bar wf-text-sm"></div>
+                        </div>
+                        <div class="wf-divider"></div>
+                        <div class="wf-summary-row">
+                            <div class="wf-bar wf-text-md"></div>
+                            <div class="wf-bar wf-text-price-lg"></div>
+                        </div>
+                    </div>
+                    <div class="wf-spacer"></div>
+                    <!-- Shipping info -->
+                    <div class="wf-card">
+                        <div class="wf-bar wf-section-title"></div>
+                        <div class="wf-spacer-sm"></div>
+                        <div class="wf-bar wf-text-md"></div>
+                        <div class="wf-bar wf-text-sm"></div>
+                        <div class="wf-bar wf-text-sm"></div>
+                    </div>
+                    <div class="wf-spacer"></div>
+                    <div class="wf-btn-outline"></div>
+                </div>
+                <div class="wireframe-label">Order Confirmation</div>
+            </div>
+        </div>
+
+        <!-- Slides Wireframe Flows -->
+        <div class="wireframe-flows hidden" id="slidesWireframeFlows">
+            <!-- Slide 1: Title Slide -->
+            <div class="wireframe-screen wf-landscape">
+                <div class="wireframe-header wf-slides-header">
+                    <div class="wf-bar wf-logo"></div>
+                    <div class="wf-slides-toolbar">
+                        <div class="wf-bar wf-toolbar-btn"></div>
+                        <div class="wf-bar wf-toolbar-btn"></div>
+                        <div class="wf-bar wf-toolbar-btn"></div>
+                    </div>
+                </div>
+                <div class="wf-slides-canvas">
+                    <div class="wf-slide">
+                        <div class="wf-slide-content wf-slide-title-layout">
+                            <div class="wf-bar wf-slide-heading"></div>
+                            <div class="wf-bar wf-slide-subheading"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wf-slides-filmstrip">
+                    <div class="wf-filmstrip-thumb active"></div>
+                    <div class="wf-filmstrip-thumb"></div>
+                    <div class="wf-filmstrip-thumb"></div>
+                    <div class="wf-filmstrip-thumb"></div>
+                    <div class="wf-filmstrip-thumb"></div>
+                </div>
+                <div class="wireframe-label">Title Slide</div>
+            </div>
+
+            <!-- Slide 2: Content Slide -->
+            <div class="wireframe-screen wf-landscape">
+                <div class="wireframe-header wf-slides-header">
+                    <div class="wf-bar wf-logo"></div>
+                    <div class="wf-slides-toolbar">
+                        <div class="wf-bar wf-toolbar-btn"></div>
+                        <div class="wf-bar wf-toolbar-btn"></div>
+                        <div class="wf-bar wf-toolbar-btn"></div>
+                    </div>
+                </div>
+                <div class="wf-slides-canvas">
+                    <div class="wf-slide">
+                        <div class="wf-slide-content wf-slide-content-layout">
+                            <div class="wf-bar wf-slide-section-title"></div>
+                            <div class="wf-slide-two-col">
+                                <div class="wf-slide-col">
+                                    <div class="wf-slide-img-placeholder"></div>
+                                </div>
+                                <div class="wf-slide-col">
+                                    <div class="wf-bar wf-slide-text-lg"></div>
+                                    <div class="wf-bar wf-slide-text-md"></div>
+                                    <div class="wf-bar wf-slide-text-md"></div>
+                                    <div class="wf-bar wf-slide-text-sm"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wf-slides-filmstrip">
+                    <div class="wf-filmstrip-thumb"></div>
+                    <div class="wf-filmstrip-thumb active"></div>
+                    <div class="wf-filmstrip-thumb"></div>
+                    <div class="wf-filmstrip-thumb"></div>
+                    <div class="wf-filmstrip-thumb"></div>
+                </div>
+                <div class="wireframe-label">Content</div>
+            </div>
+
+            <!-- Slide 3: Data/Chart Slide -->
+            <div class="wireframe-screen wf-landscape">
+                <div class="wireframe-header wf-slides-header">
+                    <div class="wf-bar wf-logo"></div>
+                    <div class="wf-slides-toolbar">
+                        <div class="wf-bar wf-toolbar-btn"></div>
+                        <div class="wf-bar wf-toolbar-btn"></div>
+                        <div class="wf-bar wf-toolbar-btn"></div>
+                    </div>
+                </div>
+                <div class="wf-slides-canvas">
+                    <div class="wf-slide">
+                        <div class="wf-slide-content wf-slide-content-layout">
+                            <div class="wf-bar wf-slide-section-title"></div>
+                            <div class="wf-slide-chart">
+                                <div class="wf-chart-bar" style="height: 40%"></div>
+                                <div class="wf-chart-bar" style="height: 65%"></div>
+                                <div class="wf-chart-bar" style="height: 85%"></div>
+                                <div class="wf-chart-bar" style="height: 55%"></div>
+                                <div class="wf-chart-bar" style="height: 70%"></div>
+                            </div>
+                            <div class="wf-slide-chart-labels">
+                                <div class="wf-bar wf-chart-label"></div>
+                                <div class="wf-bar wf-chart-label"></div>
+                                <div class="wf-bar wf-chart-label"></div>
+                                <div class="wf-bar wf-chart-label"></div>
+                                <div class="wf-bar wf-chart-label"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wf-slides-filmstrip">
+                    <div class="wf-filmstrip-thumb"></div>
+                    <div class="wf-filmstrip-thumb"></div>
+                    <div class="wf-filmstrip-thumb active"></div>
+                    <div class="wf-filmstrip-thumb"></div>
+                    <div class="wf-filmstrip-thumb"></div>
+                </div>
+                <div class="wireframe-label">Data</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="brain.js"></script>
+</body>
+</html>
