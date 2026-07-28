@@ -303,21 +303,27 @@ body {
     transform: scale(1);
 }
 
-.brain-node.loaded:not(.static-node).pulsing {
-    animation: dotPulse 2.5s ease-in-out infinite;
+.brain-node.loaded:not(.static-node).pulsing::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    border: 1.5px solid #212121;
+    animation: nodePing 2.5s ease-out infinite;
 }
 
-.brain-node.loaded.pulsing:nth-child(odd) {
+.brain-node.loaded.pulsing:nth-child(odd)::before {
     animation-delay: 0.4s;
 }
 
-.brain-node.loaded.pulsing:nth-child(3n) {
+.brain-node.loaded.pulsing:nth-child(3n)::before {
     animation-delay: 0.8s;
 }
 
-@keyframes dotPulse {
-    0%, 100% { transform: translateY(0); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); }
-    50% { transform: translateY(-4px); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25); }
+@keyframes nodePing {
+    0% { transform: scale(1); opacity: 0.6; }
+    70% { transform: scale(2.8); opacity: 0; }
+    100% { transform: scale(2.8); opacity: 0; }
 }
 
 .brain-node .node-label {
@@ -376,12 +382,20 @@ body {
     background: #1a1a1f;
 }
 
+.brain-node.has-sub-nodes:hover {
+    transform: scale(1.68) !important;
+}
+
 .brain-node.expanded {
     transform: scale(1.4) !important;
     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
     z-index: 10;
     animation: none !important;
     background: #1a1a1f;
+}
+
+.brain-node.has-sub-nodes.expanded {
+    transform: scale(1.68) !important;
 }
 
 .brain-node.expanded .node-label {
@@ -457,14 +471,14 @@ body {
 
 /* Sub-nodes */
 .brain-node.sub-node {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     background: #4a4a55;
     z-index: 8;
 }
 
 .brain-node.sub-node .node-label {
-    font-size: 11px;
+    font-size: 13.2px;
     color: #4a4a55;
 }
 

@@ -424,7 +424,7 @@ function renderNodes() {
     // Render main interactive nodes
     NODES.forEach((node, i) => {
         const el = document.createElement('div');
-        el.className = `brain-node size-${node.size}`;
+        el.className = `brain-node size-${node.size}${SUB_NODES[node.id] ? ' has-sub-nodes' : ''}`;
         el.dataset.id = node.id;
         el.dataset.category = node.category;
 
@@ -519,7 +519,7 @@ function showSubNodes(parentNode, parentId) {
     const hoverZone = document.createElement('div');
     hoverZone.className = 'sub-node-hover-zone';
     hoverZone.dataset.parent = parentId;
-    const zoneRadius = 110;
+    const zoneRadius = 140;
     hoverZone.style.left = `${parentX - zoneRadius}px`;
     hoverZone.style.top = `${parentY - zoneRadius}px`;
     hoverZone.style.width = `${zoneRadius * 2}px`;
@@ -559,7 +559,7 @@ function showSubNodes(parentNode, parentId) {
         const step = availableRange / subItems.length;
         const angleDeg = avoidEnd + step * i + step / 2;
         const angleRad = (angleDeg * Math.PI) / 180;
-        const radius = 70;
+        const radius = 95;
 
         const x = parentX + Math.cos(angleRad) * radius;
         const y = parentY + Math.sin(angleRad) * radius;
