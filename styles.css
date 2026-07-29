@@ -137,6 +137,36 @@ body {
     transition: background 0.2s ease, transform 0.1s ease;
 }
 
+.prompt-mic-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: color 0.2s ease, transform 0.1s ease;
+}
+
+.prompt-mic-btn:hover {
+    color: var(--text);
+    transform: scale(1.05);
+}
+
+.prompt-mic-btn.listening {
+    color: #e03e3e;
+    animation: micPulse 1s ease-in-out infinite;
+}
+
+@keyframes micPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
 .prompt-send-btn:hover {
     background: #333340;
     transform: scale(1.05);

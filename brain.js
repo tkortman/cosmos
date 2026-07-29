@@ -475,6 +475,43 @@ function bindEvents() {
         });
     }
 
+    // Microphone speech-to-text
+    const micBtn = document.getElementById('micBtn');
+    if (micBtn && ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window)) {
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognition = new SpeechRecognition();
+        recognition.continuous = false;
+        recognition.interimResults = true;
+        recognition.lang = 'en-US';
+
+        micBtn.addEventListener('click', () => {
+            if (micBtn.classList.contains('listening')) {
+                recognition.stop();
+            } else {
+                recognition.start();
+                micBtn.classList.add('listening');
+            }
+        });
+
+        recognition.onresult = (event) => {
+            const transcript = Array.from(event.results)
+                .map(r => r[0].transcript)
+                .join('');
+            promptInput.value = transcript;
+            promptInput.dispatchEvent(new Event('input'));
+        };
+
+        recognition.onend = () => {
+            micBtn.classList.remove('listening');
+        };
+
+        recognition.onerror = () => {
+            micBtn.classList.remove('listening');
+        };
+    } else if (micBtn) {
+        micBtn.style.display = 'none';
+    }
+
     // Node hover interactions
     document.querySelectorAll('.brain-node:not(.static-node)').forEach(node => {
         node.addEventListener('click', () => {
