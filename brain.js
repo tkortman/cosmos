@@ -512,6 +512,15 @@ function bindEvents() {
         micBtn.style.display = 'none';
     }
 
+    // Wireframe close buttons
+    document.querySelectorAll('.wf-close-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (!isProcessing) {
+                transitionFromWireframesToBrain();
+            }
+        });
+    });
+
     // Node hover interactions
     document.querySelectorAll('.brain-node:not(.static-node)').forEach(node => {
         node.addEventListener('click', () => {
