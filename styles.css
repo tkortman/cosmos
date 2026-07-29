@@ -807,8 +807,8 @@ body {
 }
 
 .wireframe-screen {
-    width: 393px;
-    height: 852px;
+    height: 80vh;
+    width: calc(80vh * 393 / 852);
     background: #ffffff;
     border: 1px solid #e0e0e0;
     border-radius: 48px;
