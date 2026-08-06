@@ -302,6 +302,7 @@ const SUB_NODES = {
 };
 
 // Layout positions (percentage-based within the brain container)
+const HEADER_HEIGHT = 72;
 const NODE_POSITIONS = [
     { x: 45, y: 8 },    // Cosmos AI
     { x: 75, y: 15 },   // Agents
@@ -416,6 +417,12 @@ function playIntro() {
             node.classList.add('show-label');
         }, allAnimsDone + i * 60);
     });
+
+    // Slide in header after all labels are shown
+    const headerTime = allAnimsDone + mainNodes.length * 60 + 200;
+    setTimeout(() => {
+        document.querySelector('.top-nav').classList.add('visible');
+    }, headerTime);
 }
 
 function renderNodes() {
@@ -430,7 +437,7 @@ function renderNodes() {
 
         const pos = NODE_POSITIONS[i];
         el.style.left = `${pos.x}%`;
-        el.style.top = `${pos.y}%`;
+        el.style.top = `calc(${pos.y}% * (100vh - ${HEADER_HEIGHT}px) / 100vh + ${HEADER_HEIGHT}px)`;
 
         el.innerHTML = `<span class="node-label">${node.label}</span>`;
         container.appendChild(el);
@@ -447,12 +454,23 @@ function renderNodes() {
             y = 5 + Math.random() * 85;
         } while (x > 40 && x < 60 && y > 40 && y < 60);
         el.style.left = `${x}%`;
-        el.style.top = `${y}%`;
+        el.style.top = `calc(${y}% * (100vh - ${HEADER_HEIGHT}px) / 100vh + ${HEADER_HEIGHT}px)`;
         container.appendChild(el);
     }
 }
 
 function bindEvents() {
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            themeToggle.querySelector('.icon-sun').style.display = isDark ? '' : 'none';
+            themeToggle.querySelector('.icon-moon').style.display = isDark ? 'none' : '';
+        });
+    }
+
     const submitBtn = document.getElementById('submitPrompt');
     const promptInput = document.getElementById('promptInput');
 
@@ -931,14 +949,14 @@ function rearrangeActiveNodes(nodeIds) {
     const container = document.getElementById('brainContainer');
     const containerRect = container.getBoundingClientRect();
 
-    // Available space: full viewport minus search bar (~80px for bar + padding)
+    // Available space: full viewport minus header and search bar
     const searchBarHeight = 80;
     const availableWidth = containerRect.width;
-    const availableHeight = containerRect.height - searchBarHeight;
+    const availableHeight = containerRect.height - searchBarHeight - HEADER_HEIGHT;
     const padding = 60;
 
     const centerX = availableWidth / 2;
-    const centerY = availableHeight / 2;
+    const centerY = HEADER_HEIGHT + availableHeight / 2;
     const count = nodeIds.length;
 
     // Place nodes organically around center
@@ -975,7 +993,7 @@ function rearrangeActiveNodes(nodeIds) {
     const clusterCenterX = (minX + maxX) / 2;
     const clusterCenterY = (minY + maxY) / 2;
     const targetCenterX = availableWidth / 2;
-    const targetCenterY = availableHeight / 2;
+    const targetCenterY = HEADER_HEIGHT + availableHeight / 2;
 
     nodeIds.forEach((id, i) => {
         const nodeEl = document.querySelector(`.brain-node[data-id="${id}"]`);
@@ -1029,7 +1047,7 @@ function pushInactiveNodesToEdges(activeNodeIds) {
         // Generate random positions outside the exclusion zone
         do {
             x = edgePadding + Math.random() * (width - edgePadding * 2);
-            y = edgePadding + Math.random() * (height - edgePadding * 2 - 80); // -80 for search bar
+            y = HEADER_HEIGHT + edgePadding + Math.random() * (height - HEADER_HEIGHT - edgePadding * 2 - 80);
             attempts++;
         } while (
             x > exLeft && x < exRight &&
@@ -1239,7 +1257,7 @@ function resetState() {
         el.classList.remove('active', 'dimmed', 'reveal-label', 'highlighted');
         const pos = NODE_POSITIONS[i];
         el.style.left = `${pos.x}%`;
-        el.style.top = `${pos.y}%`;
+        el.style.top = `calc(${pos.y}% * (100vh - ${HEADER_HEIGHT}px) / 100vh + ${HEADER_HEIGHT}px)`;
     });
 
     // Also show static nodes again
