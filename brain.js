@@ -369,10 +369,15 @@ let currentView = 'brain'; // 'brain', 'wireframes-checkout', 'wireframes-slides
 document.addEventListener('DOMContentLoaded', () => {
     renderNodes();
     bindEvents();
-    // Play brand animation, start brain intro 250ms before it ends
-    playBrandIntro().then(() => {
-        playIntro();
-    });
+
+    function startAnimation() {
+        document.removeEventListener('click', startAnimation);
+        playBrandIntro().then(() => {
+            playIntro();
+        });
+    }
+
+    document.addEventListener('click', startAnimation);
 });
 
 function playIntro() {
