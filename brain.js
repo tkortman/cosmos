@@ -370,14 +370,9 @@ document.addEventListener('DOMContentLoaded', () => {
     renderNodes();
     bindEvents();
 
-    function startAnimation() {
-        document.removeEventListener('click', startAnimation);
-        playBrandIntro().then(() => {
-            playIntro();
-        });
-    }
-
-    document.addEventListener('click', startAnimation);
+    playBrandIntro().then(() => {
+        playIntro();
+    });
 });
 
 function playIntro() {
