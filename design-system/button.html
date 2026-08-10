@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button – cosmos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.getElementById('pageHeader');
+      const stickyName = document.querySelector('.sticky-page-name');
+      if (header && stickyName) {
+        const observer = new IntersectionObserver(([entry]) => {
+          stickyName.classList.toggle('visible', !entry.isIntersecting);
+        }, { rootMargin: `-${getComputedStyle(document.documentElement).getPropertyValue('--nav-height')} 0px 0px 0px` });
+        observer.observe(header);
+      }
+      document.querySelectorAll('.sidebar__section-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          btn.querySelector('.sidebar__chevron').classList.toggle('sidebar__chevron--collapsed', expanded);
+          const items = btn.nextElementSibling;
+          if (items) items.classList.toggle('sidebar__section-items--hidden', expanded);
+        });
+      });
+    });
+  </script>
+
+  <header class="top-nav">
+    <a href="../index.html" class="top-nav__brand"><span class="brand-letter">c</span><span class="brand-letter">o</span><span class="brand-letter">s</span><span class="brand-letter">m</span><span class="brand-letter brand-letter--italic">o</span><span class="brand-letter brand-letter--italic">s</span></a>
+    <nav class="top-nav__links">
+      <a href="../index.html">Overview</a>
+      <a href="../docs/index.html">Foundations</a>
+      <a href="index.html" class="active">Design System</a>
+      <a href="../cms/index.html">CMS</a>
+      <a href="../ai/index.html">AI</a>
+    </nav>
+    <button class="top-nav__theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+  </header>
+
+  <div class="page-layout">
+    <aside class="sidebar" role="navigation" aria-label="Design System Navigation">
+      <div class="sidebar__heading">Design System</div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle sidebar__section-toggle--active" aria-expanded="true">
+          <strong>Components</strong>
+          <svg class="sidebar__chevron" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items">
+          <a href="button.html" class="sidebar__item sidebar__item--active">Button</a>
+        </div>
+      </div>
+
+      <div class="sidebar__section">
+        <a href="tokens-colors.html" class="sidebar__section-link">Colors</a>
+        <a href="tokens-typography.html" class="sidebar__section-link">Typography</a>
+        <a href="tokens-spacing.html" class="sidebar__section-link">Spacing</a>
+        <a href="tokens-sizing.html" class="sidebar__section-link">Sizing</a>
+        <a href="tokens-radius.html" class="sidebar__section-link">Radius</a>
+        <a href="tokens-motion.html" class="sidebar__section-link">Motion</a>
+        <a href="tokens-shadows.html" class="sidebar__section-link">Shadows</a>
+        <a href="tokens-z-index.html" class="sidebar__section-link">Z-Index</a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="sticky-page-name">Button</div>
+      <div class="main-content__header" id="pageHeader">
+        <h1 class="page-title">Button</h1>
+        <p class="page-description">Buttons trigger the primary action in a flow. They guide users toward the next step in completing a task.</p>
+      </div>
+
+      <div class="main-content__body">
+        <div class="main-content__body-inner">
+        <div class="main-content__sections">
+
+        <section class="content-section">
+          <h2 id="considerations">Considerations</h2>
+          <h3>Actionable</h3>
+          <p>Buttons guide users toward the primary actions on a screen, helping them understand what to do next.</p>
+          <h3>Consistent</h3>
+          <p>Buttons appear in consistent places throughout the experience.</p>
+          <h3>Clear</h3>
+          <p>Labels are short and express the action that will occur when pressed.</p>
+        </section>
+
+        <section class="content-section">
+          <h2 id="anatomy">Anatomy</h2>
+          <table class="content-table">
+            <thead><tr><th>#</th><th>Element</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Lead icon</td><td>Optional icon before the title to reinforce meaning</td></tr>
+              <tr><td>2</td><td>Title</td><td>Text label describing the action</td></tr>
+              <tr><td>3</td><td>Trailing icon</td><td>Optional icon after the title for disclosure behavior</td></tr>
+              <tr><td>4</td><td>Container</td><td>Background shape that holds all button content</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="content-section">
+          <h2 id="style-properties">Style properties</h2>
+          <h3>Primary</h3>
+          <p>Primary buttons represent the most important action on a page. They guide users to the next step in completing a task. There should only be a single primary action per screen.</p>
+          <h3>Secondary</h3>
+          <p>Secondary buttons have less visual weight and are used for non-primary actions. Avoid using them in isolation or as primary positive actions that progress an experience.</p>
+          <h3>Tertiary</h3>
+          <p>Tertiary buttons are for low-priority actions. They can be used in isolation or paired with a primary button for increased contrast. These actions usually supplement a primary task.</p>
+          <h3>Borderless</h3>
+          <p>Borderless buttons represent lower-priority actions. They are used within other components as optional actions or within button groups.</p>
+        </section>
+
+        <section class="content-section">
+          <h2 id="role-properties">Role properties</h2>
+          <h3>Default</h3>
+          <p>Use default buttons for routine, safe actions. They are used for tasks like "Accept," "Save," "Next," or "Cancel." These buttons are suitable for non-critical operations that do not lead to significant changes or data loss.</p>
+          <h3>Destructive</h3>
+          <p>Use destructive buttons when an action will remove user data. Higher-impact decisions should use the bolder primary style while less-impactful decisions can use the secondary or tertiary styles.</p>
+        </section>
+
+        <section class="content-section">
+          <h2 id="additional-properties">Additional properties</h2>
+          <h3>Button titles</h3>
+          <p>A primary button title names the action and makes the result immediately clear. Write from the user's POV and align with page or section headers to create narrative continuity. Use outcome-oriented verbs like "add" or "remove" because they tell the user exactly what will change.</p>
+          <ul>
+            <li>Use sentence case</li>
+            <li>No ending punctuation</li>
+            <li>Start with a verb and only add an object if the action alone is ambiguous</li>
+            <li>Aim for 1–3 words</li>
+          </ul>
+          <h3>Icons</h3>
+          <p>There are two icon slots available: a leading and a trailing icon. Use lead icons alongside titles to visually reinforce their meaning and draw attention. Use trailing icons for disclosure of additional behavior, like a chevron indicating a popover menu will appear.</p>
+          <h3>Size</h3>
+          <p>Buttons are available in small, medium, and large sizes. Large is the default size and is preferred on smaller screens. The small size is primarily used in popover elements to provide visual balance and conserve space.</p>
+          <table class="content-table">
+            <thead><tr><th>Size</th><th>Height</th><th>Horizontal padding</th><th>Icon–title gap</th></tr></thead>
+            <tbody>
+              <tr><td>Large</td><td>48px</td><td>24px</td><td>8px</td></tr>
+              <tr><td>Medium</td><td>40px</td><td>20px</td><td>8px</td></tr>
+              <tr><td>Small</td><td>32px</td><td>16px</td><td>6px</td></tr>
+            </tbody>
+          </table>
+          <h3>Width</h3>
+          <p>Buttons can span the width of their container or fit to their contents. For either option, buttons adhere to their minimum and maximum widths.</p>
+          <h3>Pending</h3>
+          <p>Buttons can show a pending state for actions that take longer to respond. The loading spinner replaces all content within the button and disables further interaction until loading is complete. The button does not transition to a disabled state during this time.</p>
+        </section>
+
+        <section class="content-section">
+          <h2 id="behavior">Behavior</h2>
+          <h3>Minimum width</h3>
+          <p>The minimum width for basic and destructive buttons is 2× the height of the button. Split buttons have a minimum width of 4× the height.</p>
+          <h3>Maximum width</h3>
+          <p>The maximum width for buttons is 10× the height of the button.</p>
+          <h3>Minimum tap targets</h3>
+          <p>The recommended minimum tap target for buttons is 48×48px.</p>
+          <h3>Text overflow</h3>
+          <p>Titles that extend beyond the width of the button container will truncate at the trailing end. Avoid title truncation where possible by using short, direct title strings.</p>
+          <h3>Button group</h3>
+          <p>A button group contains multiple buttons of related actions. A group can contain a single button type or a mix of CTA, destructive, link, and icon buttons. Use a button group when nesting additional actions in an overflow icon button.</p>
+          <h3>Pending delay</h3>
+          <p>The pending state has a delay of 1000ms before the spinner appears to avoid unnecessary flickering during quick responses.</p>
+          <h3>State</h3>
+          <p>Buttons use state layers for interaction states. The available states are enabled, hover, pressed, focused, disabled, and pending.</p>
+        </section>
+
+        <section class="content-section">
+          <h2 id="best-practices">Best practices</h2>
+          <h3>Hierarchy</h3>
+          <p><strong>Do:</strong> Only use 1 primary button per screen. Use secondary, tertiary, or text buttons for other actions.</p>
+          <p><strong>Don't:</strong> Avoid more than one primary button on the screen as it reduces the clarity of what should be done next.</p>
+          <h3>Label content</h3>
+          <p><strong>Do:</strong> Labels should use verbs and indicate what will happen when the button is pressed.</p>
+          <p><strong>Don't:</strong> Don't use adjectives, nouns, or punctuation in labels.</p>
+          <h3>Icons</h3>
+          <p><strong>Do:</strong> Use icons when it helps clarify an action. Use a single icon per button.</p>
+          <p><strong>Don't:</strong> Avoid overusing icons for decorative purposes. Don't use more than one icon in a button.</p>
+          <h3>Pending state</h3>
+          <p><strong>Do:</strong> The pending state only replaces the content within the button.</p>
+          <p><strong>Don't:</strong> Don't override the button color when pending. This renders the content visually inaccessible.</p>
+        </section>
+
+        <section class="content-section">
+          <h2 id="specs">Specs</h2>
+          <table class="content-table">
+            <thead><tr><th>Size</th><th>Height</th><th>Padding (horizontal)</th><th>Icon–title gap</th><th>Pending spinner</th></tr></thead>
+            <tbody>
+              <tr><td>Large</td><td>48px</td><td>24px</td><td>8px</td><td>24×24px</td></tr>
+              <tr><td>Medium</td><td>40px</td><td>20px</td><td>8px</td><td>24×24px</td></tr>
+              <tr><td>Small</td><td>32px</td><td>16px</td><td>6px</td><td>16×16px</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        </div>
+
+        <nav class="toc" aria-label="On this page">
+          <div class="toc__inner">
+            <div class="toc__header">On this page</div>
+            <div class="toc__links">
+              <a href="#considerations" class="toc__link">Considerations</a>
+              <a href="#anatomy" class="toc__link">Anatomy</a>
+              <a href="#style-properties" class="toc__link">Style properties</a>
+              <a href="#role-properties" class="toc__link">Role properties</a>
+              <a href="#additional-properties" class="toc__link">Additional properties</a>
+              <a href="#behavior" class="toc__link">Behavior</a>
+              <a href="#best-practices" class="toc__link">Best practices</a>
+              <a href="#specs" class="toc__link">Specs</a>
+            </div>
+          </div>
+        </nav>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

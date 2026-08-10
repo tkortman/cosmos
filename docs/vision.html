@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Philosophy – cosmos</title>
+  <title>Vision – cosmos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
   <script>
@@ -33,13 +33,13 @@
   </script>
 
   <header class="top-nav">
-    <a href="../../index.html" class="top-nav__brand"><span class="brand-letter">c</span><span class="brand-letter">o</span><span class="brand-letter">s</span><span class="brand-letter">m</span><span class="brand-letter brand-letter--italic">o</span><span class="brand-letter brand-letter--italic">s</span></a>
+    <a href="../index.html" class="top-nav__brand"><span class="brand-letter">c</span><span class="brand-letter">o</span><span class="brand-letter">s</span><span class="brand-letter">m</span><span class="brand-letter brand-letter--italic">o</span><span class="brand-letter brand-letter--italic">s</span></a>
     <nav class="top-nav__links">
-      <a href="../../index.html">Overview</a>
-      <a href="../index.html" class="active">Foundations</a>
-      <a href="../../design-system/index.html">Design System</a>
-      <a href="../../cms/index.html">CMS</a>
-      <a href="../../ai/index.html">AI</a>
+      <a href="../index.html">Overview</a>
+      <a href="index.html" class="active">Foundations</a>
+      <a href="../design-system/index.html">Design System</a>
+      <a href="../cms/index.html">CMS</a>
+      <a href="../ai/index.html">AI</a>
     </nav>
     <button class="top-nav__theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
       <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -61,8 +61,8 @@
           <svg class="sidebar__chevron" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
         </button>
         <div class="sidebar__section-items">
-          <a href="brand-foundation.html" class="sidebar__item sidebar__item--active">Philosophy</a>
-          <a href="vision.html" class="sidebar__item">Vision</a>
+          <a href="brand-foundation.html" class="sidebar__item">Philosophy</a>
+          <a href="vision.html" class="sidebar__item sidebar__item--active">Vision</a>
         </div>
       </div>
 
@@ -118,37 +118,46 @@
     </aside>
 
     <main class="main-content">
-      <div class="sticky-page-name">Philosophy</div>
+      <div class="sticky-page-name">Vision</div>
       <div class="main-content__header" id="pageHeader">
-        <h1 class="page-title">Philosophy</h1>
-        <p class="page-description">Single system, diverse expressions — how our brand adapts across every channel while staying unmistakably Shipt.</p>
+        <h1 class="page-title">Vision</h1>
+        <p class="page-description">Our brand promise and the north star that guides everything we do.</p>
       </div>
 
       <div class="main-content__body">
         <div class="main-content__body-inner">
         <div class="main-content__sections">
 
-        <section class="content-section">
-          <h2>01 — Single System, Diverse Expressions</h2>
-          <p>This guide is our single source of truth. Every asset, campaign, email, and social post is born from the same visual and verbal DNA outlined in these pages.</p>
-          <p>However, brand consistency does not mean identical execution. We do not believe in "matching luggage." Great enterprise brands honor the environment in which their audience meets them.</p>
+        <section class="content-section" id="brand-promise">
+          <h2>Vision</h2>
+          <p>Shipt delivers a personal touch in every interaction. We believe that the way people get their essentials should feel as good as what they're getting. Our promise is to bring joy, ease, and reliability to everyday life.</p>
+          <div class="callout callout--info">
+            <p>Our brand promise underpins every piece of communication — from push notifications to billboard campaigns.</p>
+          </div>
         </section>
 
-        <section class="content-section">
-          <h2>02 — Channel-Native Strategy</h2>
-          <p>Every channel has a specific purpose, and no single execution can do it all.</p>
-          <p>Some prioritize storytelling, emotional connection, and cultural relevance to meet consumers where they are.</p>
-          <p>Some prioritize speed and utility to ensure seamless transactions.</p>
-          <p>The strength of our brand lies in recognizing the distinction. While all executions share a core identity, their expression adapts based on the channel's role and the audience's mindset.</p>
-        </section>
-
-        <section class="content-section">
-          <h2>03 — How to Use This Guide</h2>
-          <p>Think of these guidelines as a set of master instruments, not a rigid mold. Use them to construct experiences that feel unmistakably Shipt, anchored in our tone, colors, and human-centric sentiment.</p>
-          <p>When we respect both our core brand standards and the native context of each medium, we build a brand that is both emotionally captivating and frictionlessly functional.</p>
+        <section class="content-section" id="brand-personality">
+          <h2>Brand Personality</h2>
+          <ul>
+            <li>Helpful but never overbearing</li>
+            <li>Warm but not saccharine</li>
+            <li>Confident but not arrogant</li>
+            <li>Playful but purposeful</li>
+          </ul>
+          <p>These traits inform our tone across all channels and should remain consistent regardless of audience segment.</p>
         </section>
 
         </div>
+
+        <nav class="toc" aria-label="On this page">
+          <div class="toc__inner">
+            <div class="toc__header">On this page</div>
+            <div class="toc__links">
+              <a href="#brand-promise" class="toc__link">Vision</a>
+              <a href="#brand-personality" class="toc__link">Brand Personality</a>
+            </div>
+          </div>
+        </nav>
         </div>
       </div>
     </main>

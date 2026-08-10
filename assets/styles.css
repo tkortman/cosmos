@@ -1,19 +1,19 @@
 /* Fonts */
 @font-face {
   font-family: 'EuclidCircularA';
-  src: url('assets/fonts/EuclidCircularA-Regular.otf') format('opentype');
+  src: url('fonts/EuclidCircularA-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: 'EuclidCircularA';
-  src: url('assets/fonts/EuclidCircularA-Medium.otf') format('opentype');
+  src: url('fonts/EuclidCircularA-Medium.otf') format('opentype');
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: 'EuclidCircularA';
-  src: url('assets/fonts/EuclidCircularA-RegularItalic.otf') format('opentype');
+  src: url('fonts/EuclidCircularA-RegularItalic.otf') format('opentype');
   font-weight: 400;
   font-style: italic;
 }
@@ -229,6 +229,31 @@ a:hover {
 
 .sidebar__section {
   margin-top: 0;
+}
+
+.sidebar__section-link {
+  display: block;
+  padding: 14px 12px;
+  margin: 0 12px;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(33, 33, 33, 0.8);
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.sidebar__section-link:hover {
+  color: #212121;
+  background: #f5f5f5;
+  border-radius: 12px;
+  text-decoration: none;
+}
+
+.sidebar__section-link--active {
+  color: #212121;
+  font-weight: 500;
+  background: #f5f5f5;
+  border-radius: 12px;
 }
 
 .sidebar__section-toggle {

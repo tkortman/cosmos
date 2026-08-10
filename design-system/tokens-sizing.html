@@ -3,29 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>cosmos – Design System</title>
+  <title>Sizing – cosmos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
-  <style>
-    .sidebar {
-      transform: translateX(-100%);
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .main-content {
-      opacity: 0;
-      transition: opacity 0.5s ease 0.15s;
-    }
-    body.page-ready .sidebar {
-      transform: translateX(0);
-    }
-    body.page-ready .main-content {
-      opacity: 1;
-    }
-  </style>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const header = document.getElementById('pageHeader');
@@ -44,9 +28,6 @@
           const items = btn.nextElementSibling;
           if (items) items.classList.toggle('sidebar__section-items--hidden', expanded);
         });
-      });
-      requestAnimationFrame(() => {
-        document.body.classList.add('page-ready');
       });
     });
   </script>
@@ -88,7 +69,7 @@
         <a href="tokens-colors.html" class="sidebar__section-link">Colors</a>
         <a href="tokens-typography.html" class="sidebar__section-link">Typography</a>
         <a href="tokens-spacing.html" class="sidebar__section-link">Spacing</a>
-        <a href="tokens-sizing.html" class="sidebar__section-link">Sizing</a>
+        <a href="tokens-sizing.html" class="sidebar__section-link sidebar__section-link--active">Sizing</a>
         <a href="tokens-radius.html" class="sidebar__section-link">Radius</a>
         <a href="tokens-motion.html" class="sidebar__section-link">Motion</a>
         <a href="tokens-shadows.html" class="sidebar__section-link">Shadows</a>
@@ -97,10 +78,10 @@
     </aside>
 
     <main class="main-content">
-      <div class="sticky-page-name">Design System</div>
+      <div class="sticky-page-name">Sizing</div>
       <div class="main-content__header" id="pageHeader">
-        <h1 class="page-title">Design System</h1>
-        <p class="page-description">A cross-platform design system, providing primitives for both web and mobile applications.</p>
+        <h1 class="page-title">Sizing</h1>
+        <p class="page-description">Sizing tokens define component heights, icon sizes, border widths, and breakpoints.</p>
       </div>
 
       <div class="main-content__body">

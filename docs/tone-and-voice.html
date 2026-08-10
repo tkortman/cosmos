@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Values – cosmos</title>
+  <title>Tone &amp; Voice – cosmos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
   <script>
@@ -33,13 +33,13 @@
   </script>
 
   <header class="top-nav">
-    <a href="../../index.html" class="top-nav__brand"><span class="brand-letter">c</span><span class="brand-letter">o</span><span class="brand-letter">s</span><span class="brand-letter">m</span><span class="brand-letter brand-letter--italic">o</span><span class="brand-letter brand-letter--italic">s</span></a>
+    <a href="../index.html" class="top-nav__brand"><span class="brand-letter">c</span><span class="brand-letter">o</span><span class="brand-letter">s</span><span class="brand-letter">m</span><span class="brand-letter brand-letter--italic">o</span><span class="brand-letter brand-letter--italic">s</span></a>
     <nav class="top-nav__links">
-      <a href="../../index.html">Overview</a>
-      <a href="../index.html" class="active">Foundations</a>
-      <a href="../../design-system/index.html">Design System</a>
-      <a href="../../cms/index.html">CMS</a>
-      <a href="../../ai/index.html">AI</a>
+      <a href="../index.html">Overview</a>
+      <a href="index.html" class="active">Foundations</a>
+      <a href="../design-system/index.html">Design System</a>
+      <a href="../cms/index.html">CMS</a>
+      <a href="../ai/index.html">AI</a>
     </nav>
     <button class="top-nav__theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
       <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -56,23 +56,23 @@
       <div class="sidebar__heading">Brand Guidelines</div>
 
       <div class="sidebar__section">
-        <button class="sidebar__section-toggle sidebar__section-toggle--active" aria-expanded="true">
-          <strong>Brand</strong>
-          <svg class="sidebar__chevron" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        <button class="sidebar__section-toggle" aria-expanded="false">
+          Brand
+          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
         </button>
-        <div class="sidebar__section-items">
+        <div class="sidebar__section-items sidebar__section-items--hidden">
           <a href="brand-foundation.html" class="sidebar__item">Philosophy</a>
           <a href="vision.html" class="sidebar__item">Vision</a>
         </div>
       </div>
 
       <div class="sidebar__section">
-        <button class="sidebar__section-toggle" aria-expanded="false">
-          Tone &amp; Voice
-          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        <button class="sidebar__section-toggle sidebar__section-toggle--active" aria-expanded="true">
+          <strong>Tone &amp; Voice</strong>
+          <svg class="sidebar__chevron" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
         </button>
-        <div class="sidebar__section-items sidebar__section-items--hidden">
-          <a href="tone-and-voice.html" class="sidebar__item">Overview</a>
+        <div class="sidebar__section-items">
+          <a href="tone-and-voice.html" class="sidebar__item sidebar__item--active">Overview</a>
         </div>
       </div>
 
@@ -118,24 +118,57 @@
     </aside>
 
     <main class="main-content">
-      <div class="sticky-page-name">Values</div>
+      <div class="sticky-page-name">Tone &amp; Voice</div>
       <div class="main-content__header" id="pageHeader">
-        <h1 class="page-title">Values</h1>
-        <p class="page-description">The pillars that shape how Shipt shows up — Fresh, Vibrant, and Human.</p>
+        <h1 class="page-title">Tone &amp; Voice</h1>
+        <p class="page-description">How Shipt sounds across every channel — our writing principles, messaging hierarchy, and tagline guidelines.</p>
       </div>
 
       <div class="main-content__body">
         <div class="main-content__body-inner">
         <div class="main-content__sections">
 
-        <section class="content-section" id="brand-pillars">
-          <h2>Values</h2>
-          <h3 id="fresh">Fresh</h3>
-          <p>We bring energy and optimism to every experience. Our visual and verbal tone is clean, modern, and forward-looking.</p>
-          <h3 id="vibrant">Vibrant</h3>
-          <p>Our color palette and imagery celebrate life's everyday moments with warmth and dimension.</p>
-          <h3 id="human">Human</h3>
-          <p>We center real people — shoppers, customers, and communities — in everything we do. Our language is conversational, empathetic, and inclusive.</p>
+        <section class="content-section" id="tone-and-voice">
+          <h2>Tone &amp; Voice</h2>
+          <p>Shipt's voice is a direct extension of our brand personality. We speak like a knowledgeable friend — someone who genuinely wants to help and knows how to make your day a little better.</p>
+        </section>
+
+        <section class="content-section" id="writing-principles">
+          <h2>Writing Principles</h2>
+          <ol>
+            <li><strong>Lead with value</strong> — Tell people what they gain, not what we do.</li>
+            <li><strong>Be specific</strong> — Concrete details build trust. Avoid vague superlatives.</li>
+            <li><strong>Keep it conversational</strong> — Write like you speak. If it sounds stiff read aloud, rewrite it.</li>
+            <li><strong>Respect their time</strong> — Say more with fewer words. Every sentence should earn its place.</li>
+          </ol>
+        </section>
+
+        <section class="content-section" id="messaging-framework">
+          <h2>Messaging Framework</h2>
+          <p>Use the following hierarchy when crafting communications:</p>
+          <ol>
+            <li><strong>Headline:</strong> A single, benefit-driven statement.</li>
+            <li><strong>Supporting Copy:</strong> 1–2 sentences that add context or specificity.</li>
+            <li><strong>CTA:</strong> Clear, action-oriented. Use verbs ("Shop now," "Get started").</li>
+          </ol>
+        </section>
+
+        <section class="content-section" id="tagline-usage">
+          <h2>Tagline Usage</h2>
+          <h3>"No Order is Ordinary"</h3>
+          <p>This is our primary tagline. It communicates that every delivery is personal and intentional. Use it in headline positions, paired with supporting context.</p>
+          <ul>
+            <li>Always use title case</li>
+            <li>Never alter or abbreviate the tagline</li>
+            <li>May appear alongside the Shipt logo with minimum clear space respected</li>
+          </ul>
+          <div class="image-placeholder">[Tagline lockup examples — upload asset]</div>
+          <div class="cta-group">
+            <a href="#" class="cta-block cta-block--secondary">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v8M4 7l4 4 4-4M2 13h12"/></svg>
+              Download Tagline Lockups
+            </a>
+          </div>
         </section>
 
         </div>
@@ -144,10 +177,10 @@
           <div class="toc__inner">
             <div class="toc__header">On this page</div>
             <div class="toc__links">
-              <a href="#brand-pillars" class="toc__link">Values</a>
-              <a href="#fresh" class="toc__link">Fresh</a>
-              <a href="#vibrant" class="toc__link">Vibrant</a>
-              <a href="#human" class="toc__link">Human</a>
+              <a href="#tone-and-voice" class="toc__link">Overview</a>
+              <a href="#writing-principles" class="toc__link">Writing Principles</a>
+              <a href="#messaging-framework" class="toc__link">Messaging Framework</a>
+              <a href="#tagline-usage" class="toc__link">Tagline Usage</a>
             </div>
           </div>
         </nav>

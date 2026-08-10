@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Legal &amp; Compliance – cosmos</title>
+  <title>Resource Hub – cosmos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
   <script>
@@ -33,13 +33,13 @@
   </script>
 
   <header class="top-nav">
-    <a href="../../index.html" class="top-nav__brand"><span class="brand-letter">c</span><span class="brand-letter">o</span><span class="brand-letter">s</span><span class="brand-letter">m</span><span class="brand-letter brand-letter--italic">o</span><span class="brand-letter brand-letter--italic">s</span></a>
+    <a href="../index.html" class="top-nav__brand"><span class="brand-letter">c</span><span class="brand-letter">o</span><span class="brand-letter">s</span><span class="brand-letter">m</span><span class="brand-letter brand-letter--italic">o</span><span class="brand-letter brand-letter--italic">s</span></a>
     <nav class="top-nav__links">
-      <a href="../../index.html">Overview</a>
-      <a href="../index.html" class="active">Foundations</a>
-      <a href="../../design-system/index.html">Design System</a>
-      <a href="../../cms/index.html">CMS</a>
-      <a href="../../ai/index.html">AI</a>
+      <a href="../index.html">Overview</a>
+      <a href="index.html" class="active">Foundations</a>
+      <a href="../design-system/index.html">Design System</a>
+      <a href="../cms/index.html">CMS</a>
+      <a href="../ai/index.html">AI</a>
     </nav>
     <button class="top-nav__theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
       <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -97,72 +97,99 @@
       </div>
 
       <div class="sidebar__section">
-        <button class="sidebar__section-toggle sidebar__section-toggle--active" aria-expanded="true">
-          <strong>Legal &amp; Compliance</strong>
-          <svg class="sidebar__chevron" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        <button class="sidebar__section-toggle" aria-expanded="false">
+          Legal &amp; Compliance
+          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
         </button>
-        <div class="sidebar__section-items">
-          <a href="legal-compliance.html" class="sidebar__item sidebar__item--active">Disclaimers</a>
+        <div class="sidebar__section-items sidebar__section-items--hidden">
+          <a href="legal-compliance.html" class="sidebar__item">Disclaimers</a>
         </div>
       </div>
 
       <div class="sidebar__section">
-        <button class="sidebar__section-toggle" aria-expanded="false">
-          Resource Hub
-          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        <button class="sidebar__section-toggle sidebar__section-toggle--active" aria-expanded="true">
+          <strong>Resource Hub</strong>
+          <svg class="sidebar__chevron" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
         </button>
-        <div class="sidebar__section-items sidebar__section-items--hidden">
-          <a href="resource-hub.html" class="sidebar__item">All Resources</a>
+        <div class="sidebar__section-items">
+          <a href="resource-hub.html" class="sidebar__item sidebar__item--active">All Resources</a>
         </div>
       </div>
     </aside>
 
     <main class="main-content">
-      <div class="sticky-page-name">Legal &amp; Compliance</div>
+      <div class="sticky-page-name">Resource Hub</div>
       <div class="main-content__header" id="pageHeader">
-        <h1 class="page-title">Legal &amp; Compliance</h1>
-        <p class="page-description">Mandatory disclaimers, regulatory requirements, and compliance guidelines for all Shipt brand communications.</p>
+        <h1 class="page-title">Resource Hub</h1>
+        <p class="page-description">Download brand assets, templates, and tools. Always use the latest files from this hub.</p>
       </div>
 
       <div class="main-content__body">
         <div class="main-content__body-inner">
         <div class="main-content__sections">
 
-        <section class="content-section" id="legal-disclaimers">
-          <h2>Legal Disclaimers</h2>
-          <p>All marketing materials must comply with applicable legal requirements. The following disclaimers are mandatory when their conditions apply.</p>
-          <div class="callout callout--legal">
-            <p>Disclaimer text must always be legible, meeting minimum size requirements: 8pt in print, 11px in digital. Disclaimers must not be obscured by imagery, color, or placement.</p>
-          </div>
-        </section>
+        <section class="content-section" id="resource-hub">
+          <h2>All Resources</h2>
+          <p>All resources are maintained and version-controlled. If you need access to a resource not listed here, contact the brand team.</p>
 
-        <section class="content-section" id="alcohol-guidelines">
-          <h2>Alcohol Guidelines</h2>
-          <p>Alcohol delivery is subject to strict legal and regulatory requirements that vary by state and municipality.</p>
-          <div class="callout callout--legal">
-            <p><strong>Required disclaimer for all alcohol-related communications:</strong> "Must be 21+ to order alcohol. Delivery available only in select areas. Valid ID required at delivery. Shipt Shoppers are independent contractors and are required to verify age and sobriety before completing delivery. Drink responsibly."</p>
+          <div class="resource-grid" id="logo-downloads">
+            <a href="#" class="resource-card">
+              <div>
+                <div class="resource-card__title">Logo Package</div>
+                <div class="resource-card__desc">Primary, reversed, and monochrome logos in SVG, PNG, and EPS formats.</div>
+              </div>
+              <span class="resource-card__action">Download →</span>
+            </a>
+            <a href="#" class="resource-card">
+              <div>
+                <div class="resource-card__title">Tagline Lockups</div>
+                <div class="resource-card__desc">"No Order is Ordinary" lockups in all approved configurations.</div>
+              </div>
+              <span class="resource-card__action">Download →</span>
+            </a>
+            <a href="#" class="resource-card" id="font-files">
+              <div>
+                <div class="resource-card__title">Font Files</div>
+                <div class="resource-card__desc">Euclid Circular A — Regular, Medium, Bold, and Italic weights.</div>
+              </div>
+              <span class="resource-card__action">Download →</span>
+            </a>
+            <a href="#" class="resource-card">
+              <div>
+                <div class="resource-card__title">Color Specs</div>
+                <div class="resource-card__desc">ASE, CLR, and CSS variable files for the full brand palette.</div>
+              </div>
+              <span class="resource-card__action">Download →</span>
+            </a>
+            <a href="#" class="resource-card">
+              <div>
+                <div class="resource-card__title">Icon Library</div>
+                <div class="resource-card__desc">Complete icon set in SVG format, organized by category.</div>
+              </div>
+              <span class="resource-card__action">Download →</span>
+            </a>
+            <a href="#" class="resource-card">
+              <div>
+                <div class="resource-card__title">Illustration Assets</div>
+                <div class="resource-card__desc">Spot illustrations and character assets for marketing and product.</div>
+              </div>
+              <span class="resource-card__action">Download →</span>
+            </a>
+            <a href="#" class="resource-card">
+              <div>
+                <div class="resource-card__title">Photography Library</div>
+                <div class="resource-card__desc">Curated brand photography organized by theme and use case.</div>
+              </div>
+              <span class="resource-card__action">Access Library →</span>
+            </a>
+            <a href="#" class="resource-card" id="template-library">
+              <div>
+                <div class="resource-card__title">Templates</div>
+                <div class="resource-card__desc">Presentation decks, social templates, email headers, and print layouts.</div>
+              </div>
+              <span class="resource-card__action">Download →</span>
+            </a>
           </div>
-          <h3>Creative Guidelines</h3>
-          <ul>
-            <li>Never depict minors in alcohol-related creative</li>
-            <li>Avoid imagery that associates alcohol with driving, athletic performance, or social pressure</li>
-            <li>All models must appear clearly over 25 years of age</li>
-            <li>Do not use language that encourages excessive consumption</li>
-          </ul>
-        </section>
-
-        <section class="content-section" id="pricing-disclosures">
-          <h2>Pricing Disclosures</h2>
-          <p>Pricing claims require careful treatment to ensure accuracy and compliance.</p>
-          <div class="callout callout--legal">
-            <p><strong>Required disclaimer for pricing communications:</strong> "Prices shown are subject to change without notice. In-app prices may differ from in-store prices. Membership and service fees may apply. See app for details and current pricing in your area."</p>
-          </div>
-          <h3>Best Practices</h3>
-          <ul>
-            <li>Never guarantee specific price points in creative without legal approval</li>
-            <li>Always clarify whether prices include delivery/service fees</li>
-            <li>Promotional pricing must include expiration dates and limitations</li>
-          </ul>
         </section>
 
         </div>
@@ -171,9 +198,10 @@
           <div class="toc__inner">
             <div class="toc__header">On this page</div>
             <div class="toc__links">
-              <a href="#legal-disclaimers" class="toc__link">Disclaimers</a>
-              <a href="#alcohol-guidelines" class="toc__link">Alcohol Guidelines</a>
-              <a href="#pricing-disclosures" class="toc__link">Pricing Disclosures</a>
+              <a href="#resource-hub" class="toc__link">All Resources</a>
+              <a href="#logo-downloads" class="toc__link">Logo Downloads</a>
+              <a href="#font-files" class="toc__link">Font Files</a>
+              <a href="#template-library" class="toc__link">Templates</a>
             </div>
           </div>
         </nav>
