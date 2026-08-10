@@ -74,6 +74,7 @@ a:hover {
   z-index: 100;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: var(--nav-height);
   padding: 0 24px;
   background: var(--color-bg);
@@ -94,6 +95,10 @@ a:hover {
   text-decoration: none;
 }
 
+.top-nav__brand:hover {
+  text-decoration: none;
+}
+
 .brand-letter {
   font-style: normal;
 }
@@ -106,7 +111,9 @@ a:hover {
 .top-nav__links {
   display: flex;
   gap: 32px;
-  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .top-nav__links a {
@@ -138,7 +145,7 @@ a:hover {
   padding: 4px;
   border-radius: 4px;
   display: flex;
-  align-items: center;
+  width: 120px;
 }
 
 .top-nav__theme-toggle:hover {

@@ -251,7 +251,11 @@ function playBrandIntro() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    if (sessionStorage.getItem('cosmos-intro-played')) {
+    const navEntry = performance.getEntriesByType('navigation')[0];
+    const isReload = navEntry && navEntry.type === 'reload';
+    const hasVisited = sessionStorage.getItem('cosmos-visited');
+
+    if (hasVisited && !isReload) {
         document.getElementById('brandIntroOverlay').style.display = 'none';
         const nav = document.querySelector('.top-nav');
         nav.style.transition = 'none';
@@ -259,8 +263,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('comingSoon').classList.add('visible');
         return;
     }
+    sessionStorage.setItem('cosmos-visited', '1');
     playBrandIntro().then(() => {
-        sessionStorage.setItem('cosmos-intro-played', '1');
         const overlay = document.getElementById('brandIntroOverlay');
         overlay.style.transition = 'opacity 0.6s ease';
         overlay.style.opacity = '0';
