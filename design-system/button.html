@@ -14,9 +14,12 @@
     document.addEventListener('DOMContentLoaded', () => {
       const header = document.getElementById('pageHeader');
       const stickyName = document.querySelector('.sticky-page-name');
+      const tabBar = document.querySelector('.tab-bar');
       if (header && stickyName) {
         const observer = new IntersectionObserver(([entry]) => {
-          stickyName.classList.toggle('visible', !entry.isIntersecting);
+          const visible = !entry.isIntersecting;
+          stickyName.classList.toggle('visible', visible);
+          if (tabBar) tabBar.classList.toggle('visible', visible);
         }, { rootMargin: `-${getComputedStyle(document.documentElement).getPropertyValue('--nav-height')} 0px 0px 0px` });
         observer.observe(header);
       }
@@ -84,18 +87,71 @@
         <p class="page-description">Buttons trigger the primary action in a flow. They guide users toward the next step in completing a task.</p>
       </div>
 
+      <nav class="tab-bar">
+        <a href="#" class="tab-bar__item tab-bar__item--active">Guidelines</a>
+        <a href="#" class="tab-bar__item">Usage</a>
+        <a href="#" class="tab-bar__item">Code</a>
+      </nav>
+
       <div class="main-content__body">
         <div class="main-content__body-inner">
         <div class="main-content__sections">
 
+        <div class="image-placeholder">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#b0b0b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="6" width="32" height="28" rx="2"/>
+            <circle cx="14" cy="16" r="3"/>
+            <path d="M4 28l8-8 6 6 8-10 10 12"/>
+          </svg>
+        </div>
+
         <section class="content-section">
           <h2 id="considerations">Considerations</h2>
-          <h3>Actionable</h3>
-          <p>Buttons guide users toward the primary actions on a screen, helping them understand what to do next.</p>
-          <h3>Consistent</h3>
-          <p>Buttons appear in consistent places throughout the experience.</p>
-          <h3>Clear</h3>
-          <p>Labels are short and express the action that will occur when pressed.</p>
+          <div class="split-layout">
+            <div class="split-layout__image">
+              <div class="image-placeholder">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#b0b0b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="6" width="32" height="28" rx="2"/>
+                  <circle cx="14" cy="16" r="3"/>
+                  <path d="M4 28l8-8 6 6 8-10 10 12"/>
+                </svg>
+              </div>
+            </div>
+            <div class="split-layout__copy">
+              <h3>Actionable</h3>
+              <p>Buttons guide users toward the primary actions on a screen, helping them understand what to do next.</p>
+            </div>
+          </div>
+          <div class="split-layout">
+            <div class="split-layout__image">
+              <div class="image-placeholder">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#b0b0b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="6" width="32" height="28" rx="2"/>
+                  <circle cx="14" cy="16" r="3"/>
+                  <path d="M4 28l8-8 6 6 8-10 10 12"/>
+                </svg>
+              </div>
+            </div>
+            <div class="split-layout__copy">
+              <h3>Consistent</h3>
+              <p>Buttons appear in consistent places throughout the experience.</p>
+            </div>
+          </div>
+          <div class="split-layout">
+            <div class="split-layout__image">
+              <div class="image-placeholder">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#b0b0b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="6" width="32" height="28" rx="2"/>
+                  <circle cx="14" cy="16" r="3"/>
+                  <path d="M4 28l8-8 6 6 8-10 10 12"/>
+                </svg>
+              </div>
+            </div>
+            <div class="split-layout__copy">
+              <h3>Clear</h3>
+              <p>Labels are short and express the action that will occur when pressed.</p>
+            </div>
+          </div>
         </section>
 
         <section class="content-section">

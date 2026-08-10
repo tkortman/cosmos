@@ -260,7 +260,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const nav = document.querySelector('.top-nav');
         nav.style.transition = 'none';
         nav.classList.add('visible');
-        document.getElementById('comingSoon').classList.add('visible');
+        document.body.classList.remove('intro-active');
+        document.getElementById('hero').classList.add('visible');
+        const bento = document.querySelector('.bento-grid');
+        if (bento) bento.classList.add('visible');
         return;
     }
     sessionStorage.setItem('cosmos-visited', '1');
@@ -270,8 +273,11 @@ document.addEventListener('DOMContentLoaded', () => {
         overlay.style.opacity = '0';
         setTimeout(() => {
             overlay.style.display = 'none';
+            document.body.classList.remove('intro-active');
             document.querySelector('.top-nav').classList.add('visible');
-            document.getElementById('comingSoon').classList.add('visible');
+            document.getElementById('hero').classList.add('visible');
+            const bento = document.querySelector('.bento-grid');
+            if (bento) bento.classList.add('visible');
         }, 600);
     });
 });
