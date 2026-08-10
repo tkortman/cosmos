@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resource Hub – Shipt Brand Guidelines</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.getElementById('pageHeader');
+      const stickyName = document.querySelector('.sticky-page-name');
+      if (header && stickyName) {
+        const observer = new IntersectionObserver(([entry]) => {
+          stickyName.classList.toggle('visible', !entry.isIntersecting);
+        }, { rootMargin: `-${getComputedStyle(document.documentElement).getPropertyValue('--nav-height')} 0px 0px 0px` });
+        observer.observe(header);
+      }
+      document.querySelectorAll('.sidebar__section-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          btn.querySelector('.sidebar__chevron').classList.toggle('sidebar__chevron--collapsed', expanded);
+          const items = btn.nextElementSibling;
+          if (items) items.classList.toggle('sidebar__section-items--hidden', expanded);
+        });
+      });
+    });
+  </script>
+
+  <header class="top-nav">
+    <div class="top-nav__brand"><span class="brand-letter">c</span><span class="brand-letter">o</span><span class="brand-letter">s</span><span class="brand-letter">m</span><span class="brand-letter brand-letter--italic">o</span><span class="brand-letter brand-letter--italic">s</span></div>
+    <nav class="top-nav__links">
+      <a href="../../index.html">Overview</a>
+      <a href="../index.html" class="active">Foundations</a>
+      <a href="#">Design System</a>
+      <a href="#">CMS</a>
+      <a href="../../ai/index.html">AI</a>
+    </nav>
+    <button class="top-nav__theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+  </header>
+
+  <div class="page-layout">
+    <aside class="sidebar" role="navigation" aria-label="Brand Guidelines Navigation">
+      <div class="sidebar__heading">Brand Guidelines</div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle" aria-expanded="false">
+          Brand
+          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items sidebar__section-items--hidden">
+          <a href="brand-foundation.html" class="sidebar__item">Philosophy</a>
+          <a href="vision.html" class="sidebar__item">Vision</a>
+        </div>
+      </div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle" aria-expanded="false">
+          Tone &amp; Voice
+          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items sidebar__section-items--hidden">
+          <a href="tone-and-voice.html" class="sidebar__item">Overview</a>
+        </div>
+      </div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle" aria-expanded="false">
+          Visual Identity
+          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items sidebar__section-items--hidden">
+          <a href="visual-identity.html" class="sidebar__item">Overview</a>
+        </div>
+      </div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle" aria-expanded="false">
+          Campaign &amp; Content
+          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items sidebar__section-items--hidden">
+          <a href="campaign-content.html" class="sidebar__item">Totemeal</a>
+        </div>
+      </div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle" aria-expanded="false">
+          Legal &amp; Compliance
+          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items sidebar__section-items--hidden">
+          <a href="legal-compliance.html" class="sidebar__item">Disclaimers</a>
+        </div>
+      </div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle sidebar__section-toggle--active" aria-expanded="true">
+          <strong>Resource Hub</strong>
+          <svg class="sidebar__chevron" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items">
+          <a href="resource-hub.html" class="sidebar__item sidebar__item--active">All Resources</a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="sticky-page-name">Resource Hub</div>
+      <div class="main-content__header" id="pageHeader">
+        <h1 class="page-title">Resource Hub</h1>
+        <p class="page-description">Download brand assets, templates, and tools. Always use the latest files from this hub.</p>
+      </div>
+
+      <div class="main-content__body">
+        <div class="main-content__body-inner">
+        <div class="main-content__sections">
+
+        <section class="content-section" id="resource-hub">
+          <h2>All Resources</h2>
+          <p>All resources are maintained and version-controlled. If you need access to a resource not listed here, contact the brand team.</p>
+
+          <div class="resource-grid" id="logo-downloads">
+            <a href="#" class="resource-card">
+              <div>
+                <div class="resource-card__title">Logo Package</div>
+                <div class="resource-card__desc">Primary, reversed, and monochrome logos in SVG, PNG, and EPS formats.</div>
+              </div>
+              <span class="resource-card__action">Download →</span>
+            </a>
+            <a href="#" class="resource-card">
+              <div>
+                <div class="resource-card__title">Tagline Lockups</div>
+                <div class="resource-card__desc">"No Order is Ordinary" lockups in all approved configurations.</div>
+              </div>
+              <span class="resource-card__action">Download →</span>
+            </a>
+            <a href="#" class="resource-card" id="font-files">
+              <div>
+                <div class="resource-card__title">Font Files</div>
+                <div class="resource-card__desc">Euclid Circular A — Regular, Medium, Bold, and Italic weights.</div>
+              </div>
+              <span class="resource-card__action">Download →</span>
+            </a>
+            <a href="#" class="resource-card">
+              <div>
+                <div class="resource-card__title">Color Specs</div>
+                <div class="resource-card__desc">ASE, CLR, and CSS variable files for the full brand palette.</div>
+              </div>
+              <span class="resource-card__action">Download →</span>
+            </a>
+            <a href="#" class="resource-card">
+              <div>
+                <div class="resource-card__title">Icon Library</div>
+                <div class="resource-card__desc">Complete icon set in SVG format, organized by category.</div>
+              </div>
+              <span class="resource-card__action">Download →</span>
+            </a>
+            <a href="#" class="resource-card">
+              <div>
+                <div class="resource-card__title">Illustration Assets</div>
+                <div class="resource-card__desc">Spot illustrations and character assets for marketing and product.</div>
+              </div>
+              <span class="resource-card__action">Download →</span>
+            </a>
+            <a href="#" class="resource-card">
+              <div>
+                <div class="resource-card__title">Photography Library</div>
+                <div class="resource-card__desc">Curated brand photography organized by theme and use case.</div>
+              </div>
+              <span class="resource-card__action">Access Library →</span>
+            </a>
+            <a href="#" class="resource-card" id="template-library">
+              <div>
+                <div class="resource-card__title">Templates</div>
+                <div class="resource-card__desc">Presentation decks, social templates, email headers, and print layouts.</div>
+              </div>
+              <span class="resource-card__action">Download →</span>
+            </a>
+          </div>
+        </section>
+
+        </div>
+
+        <nav class="toc" aria-label="On this page">
+          <div class="toc__inner">
+            <div class="toc__header">On this page</div>
+            <div class="toc__links">
+              <a href="#resource-hub" class="toc__link">All Resources</a>
+              <a href="#logo-downloads" class="toc__link">Logo Downloads</a>
+              <a href="#font-files" class="toc__link">Font Files</a>
+              <a href="#template-library" class="toc__link">Templates</a>
+            </div>
+          </div>
+        </nav>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

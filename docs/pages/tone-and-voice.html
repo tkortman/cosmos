@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tone &amp; Voice – Shipt Brand Guidelines</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.getElementById('pageHeader');
+      const stickyName = document.querySelector('.sticky-page-name');
+      if (header && stickyName) {
+        const observer = new IntersectionObserver(([entry]) => {
+          stickyName.classList.toggle('visible', !entry.isIntersecting);
+        }, { rootMargin: `-${getComputedStyle(document.documentElement).getPropertyValue('--nav-height')} 0px 0px 0px` });
+        observer.observe(header);
+      }
+      document.querySelectorAll('.sidebar__section-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          btn.querySelector('.sidebar__chevron').classList.toggle('sidebar__chevron--collapsed', expanded);
+          const items = btn.nextElementSibling;
+          if (items) items.classList.toggle('sidebar__section-items--hidden', expanded);
+        });
+      });
+    });
+  </script>
+
+  <header class="top-nav">
+    <div class="top-nav__brand"><span class="brand-letter">c</span><span class="brand-letter">o</span><span class="brand-letter">s</span><span class="brand-letter">m</span><span class="brand-letter brand-letter--italic">o</span><span class="brand-letter brand-letter--italic">s</span></div>
+    <nav class="top-nav__links">
+      <a href="../../index.html">Overview</a>
+      <a href="../index.html" class="active">Foundations</a>
+      <a href="#">Design System</a>
+      <a href="#">CMS</a>
+      <a href="../../ai/index.html">AI</a>
+    </nav>
+    <button class="top-nav__theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+  </header>
+
+  <div class="page-layout">
+    <aside class="sidebar" role="navigation" aria-label="Brand Guidelines Navigation">
+      <div class="sidebar__heading">Brand Guidelines</div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle" aria-expanded="false">
+          Brand
+          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items sidebar__section-items--hidden">
+          <a href="brand-foundation.html" class="sidebar__item">Philosophy</a>
+          <a href="vision.html" class="sidebar__item">Vision</a>
+        </div>
+      </div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle sidebar__section-toggle--active" aria-expanded="true">
+          <strong>Tone &amp; Voice</strong>
+          <svg class="sidebar__chevron" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items">
+          <a href="tone-and-voice.html" class="sidebar__item sidebar__item--active">Overview</a>
+        </div>
+      </div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle" aria-expanded="false">
+          Visual Identity
+          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items sidebar__section-items--hidden">
+          <a href="visual-identity.html" class="sidebar__item">Overview</a>
+        </div>
+      </div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle" aria-expanded="false">
+          Campaign &amp; Content
+          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items sidebar__section-items--hidden">
+          <a href="campaign-content.html" class="sidebar__item">Totemeal</a>
+        </div>
+      </div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle" aria-expanded="false">
+          Legal &amp; Compliance
+          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items sidebar__section-items--hidden">
+          <a href="legal-compliance.html" class="sidebar__item">Disclaimers</a>
+        </div>
+      </div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle" aria-expanded="false">
+          Resource Hub
+          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items sidebar__section-items--hidden">
+          <a href="resource-hub.html" class="sidebar__item">All Resources</a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="sticky-page-name">Tone &amp; Voice</div>
+      <div class="main-content__header" id="pageHeader">
+        <h1 class="page-title">Tone &amp; Voice</h1>
+        <p class="page-description">How Shipt sounds across every channel — our writing principles, messaging hierarchy, and tagline guidelines.</p>
+      </div>
+
+      <div class="main-content__body">
+        <div class="main-content__body-inner">
+        <div class="main-content__sections">
+
+        <section class="content-section" id="tone-and-voice">
+          <h2>Tone &amp; Voice</h2>
+          <p>Shipt's voice is a direct extension of our brand personality. We speak like a knowledgeable friend — someone who genuinely wants to help and knows how to make your day a little better.</p>
+        </section>
+
+        <section class="content-section" id="writing-principles">
+          <h2>Writing Principles</h2>
+          <ol>
+            <li><strong>Lead with value</strong> — Tell people what they gain, not what we do.</li>
+            <li><strong>Be specific</strong> — Concrete details build trust. Avoid vague superlatives.</li>
+            <li><strong>Keep it conversational</strong> — Write like you speak. If it sounds stiff read aloud, rewrite it.</li>
+            <li><strong>Respect their time</strong> — Say more with fewer words. Every sentence should earn its place.</li>
+          </ol>
+        </section>
+
+        <section class="content-section" id="messaging-framework">
+          <h2>Messaging Framework</h2>
+          <p>Use the following hierarchy when crafting communications:</p>
+          <ol>
+            <li><strong>Headline:</strong> A single, benefit-driven statement.</li>
+            <li><strong>Supporting Copy:</strong> 1–2 sentences that add context or specificity.</li>
+            <li><strong>CTA:</strong> Clear, action-oriented. Use verbs ("Shop now," "Get started").</li>
+          </ol>
+        </section>
+
+        <section class="content-section" id="tagline-usage">
+          <h2>Tagline Usage</h2>
+          <h3>"No Order is Ordinary"</h3>
+          <p>This is our primary tagline. It communicates that every delivery is personal and intentional. Use it in headline positions, paired with supporting context.</p>
+          <ul>
+            <li>Always use title case</li>
+            <li>Never alter or abbreviate the tagline</li>
+            <li>May appear alongside the Shipt logo with minimum clear space respected</li>
+          </ul>
+          <div class="image-placeholder">[Tagline lockup examples — upload asset]</div>
+          <div class="cta-group">
+            <a href="#" class="cta-block cta-block--secondary">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v8M4 7l4 4 4-4M2 13h12"/></svg>
+              Download Tagline Lockups
+            </a>
+          </div>
+        </section>
+
+        </div>
+
+        <nav class="toc" aria-label="On this page">
+          <div class="toc__inner">
+            <div class="toc__header">On this page</div>
+            <div class="toc__links">
+              <a href="#tone-and-voice" class="toc__link">Overview</a>
+              <a href="#writing-principles" class="toc__link">Writing Principles</a>
+              <a href="#messaging-framework" class="toc__link">Messaging Framework</a>
+              <a href="#tagline-usage" class="toc__link">Tagline Usage</a>
+            </div>
+          </div>
+        </nav>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campaign &amp; Content – Shipt Brand Guidelines</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.getElementById('pageHeader');
+      const stickyName = document.querySelector('.sticky-page-name');
+      if (header && stickyName) {
+        const observer = new IntersectionObserver(([entry]) => {
+          stickyName.classList.toggle('visible', !entry.isIntersecting);
+        }, { rootMargin: `-${getComputedStyle(document.documentElement).getPropertyValue('--nav-height')} 0px 0px 0px` });
+        observer.observe(header);
+      }
+      document.querySelectorAll('.sidebar__section-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          btn.querySelector('.sidebar__chevron').classList.toggle('sidebar__chevron--collapsed', expanded);
+          const items = btn.nextElementSibling;
+          if (items) items.classList.toggle('sidebar__section-items--hidden', expanded);
+        });
+      });
+    });
+  </script>
+
+  <header class="top-nav">
+    <div class="top-nav__brand"><span class="brand-letter">c</span><span class="brand-letter">o</span><span class="brand-letter">s</span><span class="brand-letter">m</span><span class="brand-letter brand-letter--italic">o</span><span class="brand-letter brand-letter--italic">s</span></div>
+    <nav class="top-nav__links">
+      <a href="../../index.html">Overview</a>
+      <a href="../index.html" class="active">Foundations</a>
+      <a href="#">Design System</a>
+      <a href="#">CMS</a>
+      <a href="../../ai/index.html">AI</a>
+    </nav>
+    <button class="top-nav__theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+  </header>
+
+  <div class="page-layout">
+    <aside class="sidebar" role="navigation" aria-label="Brand Guidelines Navigation">
+      <div class="sidebar__heading">Brand Guidelines</div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle" aria-expanded="false">
+          Brand
+          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items sidebar__section-items--hidden">
+          <a href="brand-foundation.html" class="sidebar__item">Philosophy</a>
+          <a href="vision.html" class="sidebar__item">Vision</a>
+        </div>
+      </div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle" aria-expanded="false">
+          Tone &amp; Voice
+          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items sidebar__section-items--hidden">
+          <a href="tone-and-voice.html" class="sidebar__item">Overview</a>
+        </div>
+      </div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle" aria-expanded="false">
+          Visual Identity
+          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items sidebar__section-items--hidden">
+          <a href="visual-identity.html" class="sidebar__item">Overview</a>
+        </div>
+      </div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle sidebar__section-toggle--active" aria-expanded="true">
+          <strong>Campaign &amp; Content</strong>
+          <svg class="sidebar__chevron" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items">
+          <a href="campaign-content.html" class="sidebar__item sidebar__item--active">Totemeal</a>
+        </div>
+      </div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle" aria-expanded="false">
+          Legal &amp; Compliance
+          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items sidebar__section-items--hidden">
+          <a href="legal-compliance.html" class="sidebar__item">Disclaimers</a>
+        </div>
+      </div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle" aria-expanded="false">
+          Resource Hub
+          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items sidebar__section-items--hidden">
+          <a href="resource-hub.html" class="sidebar__item">All Resources</a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="sticky-page-name">Campaign &amp; Content</div>
+      <div class="main-content__header" id="pageHeader">
+        <h1 class="page-title">Campaign &amp; Content</h1>
+        <p class="page-description">Brand campaigns, key messaging platforms, and content guidelines for Shipt's storytelling.</p>
+      </div>
+
+      <div class="main-content__body">
+        <div class="main-content__body-inner">
+        <div class="main-content__sections">
+
+        <section class="content-section" id="totemeal">
+          <h2>Totemeal</h2>
+          <p>Totemeal is a brand concept representing the complete meal experience — from planning to delivery to the table. It encompasses the idea that every ingredient, every choice, and every delivery is part of a larger story.</p>
+          <h3>Usage Context</h3>
+          <p>Use "Totemeal" in campaign work focused on meal solutions, family dinners, and recipe-driven content. Always capitalize as a proper noun.</p>
+          <div class="image-placeholder">[Totemeal campaign examples — upload asset]</div>
+        </section>
+
+        <section class="content-section" id="no-order-is-ordinary">
+          <h2>No Order is Ordinary</h2>
+          <p>This campaign platform celebrates the personal care Shipt shoppers bring to every order. It's the emotional heart of our brand narrative.</p>
+          <h3>Key Messages</h3>
+          <ul>
+            <li>Every order is handpicked by a real person who cares</li>
+            <li>Small details matter — from selecting the ripest avocado to remembering preferences</li>
+            <li>Delivery is personal, not transactional</li>
+          </ul>
+          <div class="image-placeholder">[Campaign creative samples — upload asset]</div>
+          <div class="cta-group">
+            <a href="#" class="cta-block cta-block--secondary">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v8M4 7l4 4 4-4M2 13h12"/></svg>
+              Download Campaign Toolkit
+            </a>
+          </div>
+        </section>
+
+        <section class="content-section" id="same-day-delivery">
+          <h2>Same-Day Delivery</h2>
+          <p>Same-Day Delivery is a core service differentiator. When communicating this benefit, always pair the speed message with our personal touch narrative.</p>
+          <h3>Messaging Guidelines</h3>
+          <ul>
+            <li>Lead with the benefit: "Get it today"</li>
+            <li>Follow with the personal angle: "Handpicked by your Shipt shopper"</li>
+            <li>Never promise specific delivery windows in brand creative without legal review</li>
+          </ul>
+          <div class="callout callout--legal">
+            <p>All same-day delivery claims must include the disclaimer: "Same-day delivery subject to availability. Delivery windows vary by location and order time." See Legal &amp; Compliance section for full requirements.</p>
+          </div>
+        </section>
+
+        <section class="content-section" id="seasonal-campaigns">
+          <h2>Seasonal Campaigns</h2>
+          <p>Seasonal moments (holidays, back-to-school, summer) are opportunities to show how Shipt fits into life's rhythms. Seasonal creative should feel timely but always on-brand.</p>
+          <ul>
+            <li>Maintain brand color palette as foundation — seasonal accents are additive, not replacements</li>
+            <li>Photography should reflect the season without clichés</li>
+            <li>Tagline usage remains consistent year-round</li>
+          </ul>
+        </section>
+
+        </div>
+
+        <nav class="toc" aria-label="On this page">
+          <div class="toc__inner">
+            <div class="toc__header">On this page</div>
+            <div class="toc__links">
+              <a href="#totemeal" class="toc__link">Totemeal</a>
+              <a href="#no-order-is-ordinary" class="toc__link">No Order is Ordinary</a>
+              <a href="#same-day-delivery" class="toc__link">Same-Day Delivery</a>
+              <a href="#seasonal-campaigns" class="toc__link">Seasonal Campaigns</a>
+            </div>
+          </div>
+        </nav>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

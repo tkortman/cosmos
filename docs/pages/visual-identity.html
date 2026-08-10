@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visual Identity – Shipt Brand Guidelines</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.getElementById('pageHeader');
+      const stickyName = document.querySelector('.sticky-page-name');
+      if (header && stickyName) {
+        const observer = new IntersectionObserver(([entry]) => {
+          stickyName.classList.toggle('visible', !entry.isIntersecting);
+        }, { rootMargin: `-${getComputedStyle(document.documentElement).getPropertyValue('--nav-height')} 0px 0px 0px` });
+        observer.observe(header);
+      }
+      document.querySelectorAll('.sidebar__section-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          btn.querySelector('.sidebar__chevron').classList.toggle('sidebar__chevron--collapsed', expanded);
+          const items = btn.nextElementSibling;
+          if (items) items.classList.toggle('sidebar__section-items--hidden', expanded);
+        });
+      });
+    });
+  </script>
+
+  <header class="top-nav">
+    <div class="top-nav__brand"><span class="brand-letter">c</span><span class="brand-letter">o</span><span class="brand-letter">s</span><span class="brand-letter">m</span><span class="brand-letter brand-letter--italic">o</span><span class="brand-letter brand-letter--italic">s</span></div>
+    <nav class="top-nav__links">
+      <a href="../../index.html">Overview</a>
+      <a href="../index.html" class="active">Foundations</a>
+      <a href="#">Design System</a>
+      <a href="#">CMS</a>
+      <a href="../../ai/index.html">AI</a>
+    </nav>
+    <button class="top-nav__theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+  </header>
+
+  <div class="page-layout">
+    <aside class="sidebar" role="navigation" aria-label="Brand Guidelines Navigation">
+      <div class="sidebar__heading">Brand Guidelines</div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle" aria-expanded="false">
+          Brand
+          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items sidebar__section-items--hidden">
+          <a href="brand-foundation.html" class="sidebar__item">Philosophy</a>
+          <a href="vision.html" class="sidebar__item">Vision</a>
+        </div>
+      </div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle" aria-expanded="false">
+          Tone &amp; Voice
+          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items sidebar__section-items--hidden">
+          <a href="tone-and-voice.html" class="sidebar__item">Overview</a>
+        </div>
+      </div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle sidebar__section-toggle--active" aria-expanded="true">
+          <strong>Visual Identity</strong>
+          <svg class="sidebar__chevron" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items">
+          <a href="visual-identity.html" class="sidebar__item sidebar__item--active">Overview</a>
+        </div>
+      </div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle" aria-expanded="false">
+          Campaign &amp; Content
+          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items sidebar__section-items--hidden">
+          <a href="campaign-content.html" class="sidebar__item">Totemeal</a>
+        </div>
+      </div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle" aria-expanded="false">
+          Legal &amp; Compliance
+          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items sidebar__section-items--hidden">
+          <a href="legal-compliance.html" class="sidebar__item">Disclaimers</a>
+        </div>
+      </div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle" aria-expanded="false">
+          Resource Hub
+          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items sidebar__section-items--hidden">
+          <a href="resource-hub.html" class="sidebar__item">All Resources</a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="sticky-page-name">Visual Identity</div>
+      <div class="main-content__header" id="pageHeader">
+        <h1 class="page-title">Visual Identity</h1>
+        <p class="page-description">Our visual system — logo, color, type, photography, icons, and illustration — working together to create a cohesive brand.</p>
+      </div>
+
+      <div class="main-content__body">
+        <div class="main-content__body-inner">
+        <div class="main-content__sections">
+
+        <section class="content-section" id="visual-identity">
+          <h2>Visual Identity Overview</h2>
+          <p>Our visual system is built to be recognizable, flexible, and joyful. Every element — from our logo to our illustration style — works together to create a cohesive brand experience across all touchpoints.</p>
+        </section>
+
+        <section class="content-section" id="logo">
+          <h2>Logo</h2>
+          <p>The Shipt logo is our most recognizable brand asset. It should always appear crisp, legible, and with adequate clear space.</p>
+          <h3>Primary Logo</h3>
+          <div class="image-placeholder">[Primary logo — upload asset]</div>
+          <h3>Logo Variations</h3>
+          <p>Use the appropriate variant depending on background and context:</p>
+          <ul>
+            <li><strong>Full color</strong> — Default for light backgrounds</li>
+            <li><strong>Reversed (white)</strong> — For dark or photographic backgrounds</li>
+            <li><strong>Monochrome</strong> — For single-color applications</li>
+          </ul>
+          <div class="image-placeholder">[Logo variations grid — upload asset]</div>
+          <h3>Clear Space &amp; Minimum Size</h3>
+          <p>Maintain a minimum clear space equal to the height of the "S" in Shipt on all sides. Never display the logo smaller than 80px wide in digital or 0.75" in print.</p>
+          <div class="cta-group">
+            <a href="#" class="cta-block">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v8M4 7l4 4 4-4M2 13h12"/></svg>
+              Download Logo Package
+            </a>
+            <a href="#" class="cta-block cta-block--secondary">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 2h12v12H2z"/><path d="M6 6h4v4H6z"/></svg>
+              View Usage Guidelines
+            </a>
+          </div>
+        </section>
+
+        <section class="content-section" id="color-palette">
+          <h2>Color Palette</h2>
+          <p>Our colors evoke freshness, energy, and approachability. The palette is designed to work harmoniously across digital, print, and environmental applications.</p>
+          <h3>Primary Colors</h3>
+          <div class="image-placeholder">[Color swatches — primary palette — upload asset]</div>
+          <h3>Secondary &amp; Accent Colors</h3>
+          <div class="image-placeholder">[Color swatches — secondary palette — upload asset]</div>
+          <h3>Accessibility</h3>
+          <p>All color pairings must meet WCAG 2.1 AA contrast requirements (minimum 4.5:1 for body text, 3:1 for large text).</p>
+          <div class="cta-group">
+            <a href="#" class="cta-block cta-block--secondary">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v8M4 7l4 4 4-4M2 13h12"/></svg>
+              Download Color Specs (ASE/CLR)
+            </a>
+          </div>
+        </section>
+
+        <section class="content-section" id="typography">
+          <h2>Typography</h2>
+          <p>Type is one of our most powerful brand tools. Our typeface system balances personality with readability.</p>
+          <h3>Primary Typeface</h3>
+          <p>Euclid Circular A is our primary brand typeface. Use it for headlines, body copy, and UI elements.</p>
+          <div class="image-placeholder">[Typography specimen — upload asset]</div>
+          <h3>Type Scale &amp; Hierarchy</h3>
+          <ul>
+            <li><strong>Display:</strong> 48–72px / Bold</li>
+            <li><strong>H1:</strong> 36px / Bold</li>
+            <li><strong>H2:</strong> 24px / Semibold</li>
+            <li><strong>H3:</strong> 18px / Semibold</li>
+            <li><strong>Body:</strong> 15–16px / Regular</li>
+            <li><strong>Caption:</strong> 12–13px / Regular</li>
+          </ul>
+          <div class="cta-group">
+            <a href="#" class="cta-block">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v8M4 7l4 4 4-4M2 13h12"/></svg>
+              Download Font Files
+            </a>
+          </div>
+        </section>
+
+        <section class="content-section" id="photography">
+          <h2>Photography</h2>
+          <p>Photography is central to how we communicate warmth and authenticity. Images should feel candid, joyful, and representative of the diverse communities we serve.</p>
+          <h3>Visual Tone</h3>
+          <ul>
+            <li>Natural lighting, warm tones</li>
+            <li>Real people in real moments</li>
+            <li>Diverse representation across age, ethnicity, ability, and family structure</li>
+            <li>Product shots should feel approachable, not sterile</li>
+          </ul>
+          <div class="image-placeholder">[Photography mood board — upload asset]</div>
+          <div class="cta-group">
+            <a href="#" class="cta-block cta-block--secondary">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 3h14v10H1z"/><circle cx="5" cy="7" r="1.5"/><path d="M14 13L10 8l-3 4"/></svg>
+              Access Photo Library
+            </a>
+          </div>
+        </section>
+
+        <section class="content-section" id="iconography">
+          <h2>Iconography</h2>
+          <p>Icons should be simple, friendly, and consistent in weight. Use our icon set for UI, marketing, and signage.</p>
+          <div class="image-placeholder">[Icon samples — upload asset]</div>
+          <div class="cta-group">
+            <a href="#" class="cta-block cta-block--secondary">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v8M4 7l4 4 4-4M2 13h12"/></svg>
+              Download Icon Library (SVG)
+            </a>
+          </div>
+        </section>
+
+        <section class="content-section" id="illustration">
+          <h2>Illustration</h2>
+          <p>Our illustration style extends our brand personality into areas where photography isn't practical. Illustrations should feel energetic, inclusive, and aligned with our color palette.</p>
+          <h3>Style Guidelines</h3>
+          <ul>
+            <li>Rounded shapes and soft edges</li>
+            <li>Limited color palette per illustration (3–5 colors max)</li>
+            <li>Consistent stroke weight when line-based</li>
+            <li>Characters should reflect diversity and warmth</li>
+          </ul>
+          <div class="image-placeholder">[Illustration examples — upload asset]</div>
+          <div class="cta-group">
+            <a href="#" class="cta-block cta-block--secondary">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v8M4 7l4 4 4-4M2 13h12"/></svg>
+              Download Illustration Assets
+            </a>
+          </div>
+        </section>
+
+        </div>
+
+        <nav class="toc" aria-label="On this page">
+          <div class="toc__inner">
+            <div class="toc__header">On this page</div>
+            <div class="toc__links">
+              <a href="#visual-identity" class="toc__link">Overview</a>
+              <a href="#logo" class="toc__link">Logo</a>
+              <a href="#color-palette" class="toc__link">Color Palette</a>
+              <a href="#typography" class="toc__link">Typography</a>
+              <a href="#photography" class="toc__link">Photography</a>
+              <a href="#iconography" class="toc__link">Iconography</a>
+              <a href="#illustration" class="toc__link">Illustration</a>
+            </div>
+          </div>
+        </nav>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

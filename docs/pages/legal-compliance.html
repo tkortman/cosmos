@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legal &amp; Compliance – Shipt Brand Guidelines</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.getElementById('pageHeader');
+      const stickyName = document.querySelector('.sticky-page-name');
+      if (header && stickyName) {
+        const observer = new IntersectionObserver(([entry]) => {
+          stickyName.classList.toggle('visible', !entry.isIntersecting);
+        }, { rootMargin: `-${getComputedStyle(document.documentElement).getPropertyValue('--nav-height')} 0px 0px 0px` });
+        observer.observe(header);
+      }
+      document.querySelectorAll('.sidebar__section-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          btn.querySelector('.sidebar__chevron').classList.toggle('sidebar__chevron--collapsed', expanded);
+          const items = btn.nextElementSibling;
+          if (items) items.classList.toggle('sidebar__section-items--hidden', expanded);
+        });
+      });
+    });
+  </script>
+
+  <header class="top-nav">
+    <div class="top-nav__brand"><span class="brand-letter">c</span><span class="brand-letter">o</span><span class="brand-letter">s</span><span class="brand-letter">m</span><span class="brand-letter brand-letter--italic">o</span><span class="brand-letter brand-letter--italic">s</span></div>
+    <nav class="top-nav__links">
+      <a href="../../index.html">Overview</a>
+      <a href="../index.html" class="active">Foundations</a>
+      <a href="#">Design System</a>
+      <a href="#">CMS</a>
+      <a href="../../ai/index.html">AI</a>
+    </nav>
+    <button class="top-nav__theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+  </header>
+
+  <div class="page-layout">
+    <aside class="sidebar" role="navigation" aria-label="Brand Guidelines Navigation">
+      <div class="sidebar__heading">Brand Guidelines</div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle" aria-expanded="false">
+          Brand
+          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items sidebar__section-items--hidden">
+          <a href="brand-foundation.html" class="sidebar__item">Philosophy</a>
+          <a href="vision.html" class="sidebar__item">Vision</a>
+        </div>
+      </div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle" aria-expanded="false">
+          Tone &amp; Voice
+          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items sidebar__section-items--hidden">
+          <a href="tone-and-voice.html" class="sidebar__item">Overview</a>
+        </div>
+      </div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle" aria-expanded="false">
+          Visual Identity
+          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items sidebar__section-items--hidden">
+          <a href="visual-identity.html" class="sidebar__item">Overview</a>
+        </div>
+      </div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle" aria-expanded="false">
+          Campaign &amp; Content
+          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items sidebar__section-items--hidden">
+          <a href="campaign-content.html" class="sidebar__item">Totemeal</a>
+        </div>
+      </div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle sidebar__section-toggle--active" aria-expanded="true">
+          <strong>Legal &amp; Compliance</strong>
+          <svg class="sidebar__chevron" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items">
+          <a href="legal-compliance.html" class="sidebar__item sidebar__item--active">Disclaimers</a>
+        </div>
+      </div>
+
+      <div class="sidebar__section">
+        <button class="sidebar__section-toggle" aria-expanded="false">
+          Resource Hub
+          <svg class="sidebar__chevron sidebar__chevron--collapsed" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="sidebar__section-items sidebar__section-items--hidden">
+          <a href="resource-hub.html" class="sidebar__item">All Resources</a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="sticky-page-name">Legal &amp; Compliance</div>
+      <div class="main-content__header" id="pageHeader">
+        <h1 class="page-title">Legal &amp; Compliance</h1>
+        <p class="page-description">Mandatory disclaimers, regulatory requirements, and compliance guidelines for all Shipt brand communications.</p>
+      </div>
+
+      <div class="main-content__body">
+        <div class="main-content__body-inner">
+        <div class="main-content__sections">
+
+        <section class="content-section" id="legal-disclaimers">
+          <h2>Legal Disclaimers</h2>
+          <p>All marketing materials must comply with applicable legal requirements. The following disclaimers are mandatory when their conditions apply.</p>
+          <div class="callout callout--legal">
+            <p>Disclaimer text must always be legible, meeting minimum size requirements: 8pt in print, 11px in digital. Disclaimers must not be obscured by imagery, color, or placement.</p>
+          </div>
+        </section>
+
+        <section class="content-section" id="alcohol-guidelines">
+          <h2>Alcohol Guidelines</h2>
+          <p>Alcohol delivery is subject to strict legal and regulatory requirements that vary by state and municipality.</p>
+          <div class="callout callout--legal">
+            <p><strong>Required disclaimer for all alcohol-related communications:</strong> "Must be 21+ to order alcohol. Delivery available only in select areas. Valid ID required at delivery. Shipt Shoppers are independent contractors and are required to verify age and sobriety before completing delivery. Drink responsibly."</p>
+          </div>
+          <h3>Creative Guidelines</h3>
+          <ul>
+            <li>Never depict minors in alcohol-related creative</li>
+            <li>Avoid imagery that associates alcohol with driving, athletic performance, or social pressure</li>
+            <li>All models must appear clearly over 25 years of age</li>
+            <li>Do not use language that encourages excessive consumption</li>
+          </ul>
+        </section>
+
+        <section class="content-section" id="pricing-disclosures">
+          <h2>Pricing Disclosures</h2>
+          <p>Pricing claims require careful treatment to ensure accuracy and compliance.</p>
+          <div class="callout callout--legal">
+            <p><strong>Required disclaimer for pricing communications:</strong> "Prices shown are subject to change without notice. In-app prices may differ from in-store prices. Membership and service fees may apply. See app for details and current pricing in your area."</p>
+          </div>
+          <h3>Best Practices</h3>
+          <ul>
+            <li>Never guarantee specific price points in creative without legal approval</li>
+            <li>Always clarify whether prices include delivery/service fees</li>
+            <li>Promotional pricing must include expiration dates and limitations</li>
+          </ul>
+        </section>
+
+        </div>
+
+        <nav class="toc" aria-label="On this page">
+          <div class="toc__inner">
+            <div class="toc__header">On this page</div>
+            <div class="toc__links">
+              <a href="#legal-disclaimers" class="toc__link">Disclaimers</a>
+              <a href="#alcohol-guidelines" class="toc__link">Alcohol Guidelines</a>
+              <a href="#pricing-disclosures" class="toc__link">Pricing Disclosures</a>
+            </div>
+          </div>
+        </nav>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
