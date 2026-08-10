@@ -253,7 +253,9 @@ function playBrandIntro() {
 document.addEventListener('DOMContentLoaded', () => {
     if (sessionStorage.getItem('cosmos-intro-played')) {
         document.getElementById('brandIntroOverlay').style.display = 'none';
-        document.querySelector('.top-nav').classList.add('visible');
+        const nav = document.querySelector('.top-nav');
+        nav.style.transition = 'none';
+        nav.classList.add('visible');
         document.getElementById('comingSoon').classList.add('visible');
         return;
     }
