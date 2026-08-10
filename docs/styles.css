@@ -145,7 +145,7 @@ a:hover {
   padding: 4px;
   border-radius: 4px;
   display: flex;
-  width: 120px;
+  align-items: center;
 }
 
 .top-nav__theme-toggle:hover {
