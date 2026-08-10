@@ -91,6 +91,7 @@ a:hover {
   letter-spacing: -0.01em;
   color: #212121;
   width: 120px;
+  text-decoration: none;
 }
 
 .brand-letter {

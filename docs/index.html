@@ -11,6 +11,22 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <style>
+    .sidebar {
+      transform: translateX(-100%);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .main-content {
+      opacity: 0;
+      transition: opacity 0.5s ease 0.15s;
+    }
+    body.page-ready .sidebar {
+      transform: translateX(0);
+    }
+    body.page-ready .main-content {
+      opacity: 1;
+    }
+  </style>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const header = document.getElementById('pageHeader');
@@ -30,11 +46,14 @@
           if (items) items.classList.toggle('sidebar__section-items--hidden', expanded);
         });
       });
+      requestAnimationFrame(() => {
+        document.body.classList.add('page-ready');
+      });
     });
   </script>
 
   <header class="top-nav">
-    <div class="top-nav__brand"><span class="brand-letter">c</span><span class="brand-letter">o</span><span class="brand-letter">s</span><span class="brand-letter">m</span><span class="brand-letter brand-letter--italic">o</span><span class="brand-letter brand-letter--italic">s</span></div>
+    <a href="../index.html" class="top-nav__brand"><span class="brand-letter">c</span><span class="brand-letter">o</span><span class="brand-letter">s</span><span class="brand-letter">m</span><span class="brand-letter brand-letter--italic">o</span><span class="brand-letter brand-letter--italic">s</span></a>
     <nav class="top-nav__links">
       <a href="../index.html">Overview</a>
       <a href="index.html" class="active">Foundations</a>

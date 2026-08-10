@@ -370,9 +370,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderNodes();
     bindEvents();
 
-    playBrandIntro().then(() => {
-        playIntro();
-    });
+    playIntro();
 });
 
 function playIntro() {
@@ -710,6 +708,9 @@ async function handleSubmit() {
 
     isProcessing = true;
 
+    // Dock the prompt bar to the bottom
+    document.querySelector('.floating-prompt').classList.add('docked');
+
     // If wireframes are currently showing, transition back to brain first
     if (currentView === 'wireframes-checkout' || currentView === 'wireframes-slides') {
         await transitionFromWireframesToBrain();
@@ -726,7 +727,7 @@ async function handleSubmit() {
     await delay(1500);
 
     // Fade logo
-    logo.classList.add('dimmed');
+    if (logo) logo.classList.add('dimmed');
     submitBtn.classList.remove('loading');
 
     // Activate brain
